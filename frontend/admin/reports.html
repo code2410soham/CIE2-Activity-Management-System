@@ -1,0 +1,101 @@
+<!--
+  CIE2-Activity-Management-System
+  File: frontend/admin/reports.html
+  Purpose: Review, filter, and export performance reports, system audits, and teacher evaluation compliance logs.
+  Scalability: Structure supports print layout styling and CSV/PDF export integrations.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports & Audits | CIE-2 Activity Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body class="dashboard-theme admin-portal">
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h2>CIE-2 Admin</h2>
+      </div>
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="menu-item" id="nav-dashboard">Dashboard</a>
+        <a href="user-management.html" class="menu-item" id="nav-users">User Management</a>
+        <a href="reports.html" class="menu-item active" id="nav-reports">Reports & Logs</a>
+      </nav>
+      <div class="sidebar-footer">
+        <span class="user-badge admin-badge">Admin Mode</span>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <h1 id="page-title">Reports & Audits</h1>
+        <div class="user-profile">
+          <img src="../../uploads/profile-images/default-avatar.png" alt="Profile" class="profile-pic" onerror="this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=admin'">
+          <span class="profile-name">System Administrator</span>
+        </div>
+      </header>
+
+      <div class="content-body">
+        <!-- Reports filter -->
+        <div class="glass-card filter-container">
+          <div class="filter-group">
+            <label for="report-type">Report Name:</label>
+            <select id="report-type" class="form-control">
+              <option value="evaluation-compliance">Evaluation Compliance Report</option>
+              <option value="grade-distribution">CIE-2 Grade Distribution</option>
+              <option value="system-logs">System Event logs</option>
+            </select>
+          </div>
+          <div class="filter-group text-right" style="flex: 1; align-self: flex-end;">
+            <button class="btn btn-primary">Generate Report</button>
+            <button class="btn btn-secondary">Export to CSV</button>
+          </div>
+        </div>
+
+        <!-- Report Data Grid -->
+        <div class="glass-card table-section">
+          <h2>Report Preview</h2>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Subject/Course</th>
+                <th>Instructor</th>
+                <th>Total Students</th>
+                <th>Submissions Evaluated</th>
+                <th>Pending Review</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Data Structures (CS301)</td>
+                <td>Prof. Eleanor Vance</td>
+                <td>30</td>
+                <td>28</td>
+                <td>2</td>
+                <td><span class="status-badge status-active">On Track</span></td>
+              </tr>
+              <tr>
+                <td>Database Systems (CS302)</td>
+                <td>Dr. Alan Turing</td>
+                <td>30</td>
+                <td>12</td>
+                <td>18</td>
+                <td><span class="status-badge status-pending">Behind</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../shared/scripts.js"></script>
+</body>
+</html>

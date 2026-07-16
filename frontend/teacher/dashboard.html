@@ -1,0 +1,104 @@
+<!--
+  CIE2-Activity-Management-System
+  File: frontend/teacher/dashboard.html
+  Purpose: Main workspace for teachers/instructors. Shows evaluation statuses, total activities, and pending submissions.
+  Scalability: Clean markup ready to be populated by service workers or backend controllers.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Dashboard | CIE-2 Activity Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body class="dashboard-theme teacher-portal">
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h2>CIE-2 Instructor</h2>
+      </div>
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="menu-item active" id="nav-dashboard">Dashboard</a>
+        <a href="activity-management.html" class="menu-item" id="nav-activities">Activity Management</a>
+        <a href="evaluation.html" class="menu-item" id="nav-evaluation">Evaluation Portal</a>
+      </nav>
+      <div class="sidebar-footer">
+        <span class="user-badge teacher-badge">Teacher Mode</span>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <h1 id="page-title">Instructor Dashboard</h1>
+        <div class="user-profile">
+          <img src="../../uploads/profile-images/default-avatar.png" alt="Profile" class="profile-pic" onerror="this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=teacher'">
+          <span class="profile-name">Prof. Eleanor Vance</span>
+        </div>
+      </header>
+
+      <div class="content-body">
+        <!-- Analytics summary -->
+        <section class="grid-layout cols-3">
+          <div class="glass-card metric-card">
+            <h3>Active Activities</h3>
+            <p class="metric-value">4</p>
+            <span class="metric-desc">In progress right now</span>
+          </div>
+          <div class="glass-card metric-card">
+            <h3>Pending Evaluations</h3>
+            <p class="metric-value">18</p>
+            <span class="metric-desc">Submissions awaiting score</span>
+          </div>
+          <div class="glass-card metric-card">
+            <h3>Class Performance</h3>
+            <p class="metric-value">78%</p>
+            <span class="metric-desc">Overall class average score</span>
+          </div>
+        </section>
+
+        <!-- Evaluation Queue Preview -->
+        <section class="glass-card list-section">
+          <div class="section-header">
+            <h2>Submissions Evaluation Queue</h2>
+            <a href="evaluation.html" class="btn btn-secondary">Open Evaluation Portal</a>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Activity</th>
+                <th>Submitted Date</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Alex Rivera</td>
+                <td>Data Structures Lab - Trees & Graphs</td>
+                <td>Oct 15, 2026</td>
+                <td><span class="status-badge status-pending">Awaiting Review</span></td>
+                <td><a href="evaluation.html?id=sub-101" class="btn btn-primary btn-sm">Evaluate</a></td>
+              </tr>
+              <tr>
+                <td>Sarah Connor</td>
+                <td>Data Structures Lab - Trees & Graphs</td>
+                <td>Oct 16, 2026</td>
+                <td><span class="status-badge status-pending">Awaiting Review</span></td>
+                <td><a href="evaluation.html?id=sub-102" class="btn btn-primary btn-sm">Evaluate</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="../shared/scripts.js"></script>
+</body>
+</html>

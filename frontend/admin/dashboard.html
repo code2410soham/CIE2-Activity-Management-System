@@ -1,0 +1,87 @@
+<!--
+  CIE2-Activity-Management-System
+  File: frontend/admin/dashboard.html
+  Purpose: Main entry point for administrators to view system statistics, total users, activity logs, and system load.
+  Scalability: Structure supports role-based administration features and micro-frontend imports.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | CIE-2 Activity Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body class="dashboard-theme admin-portal">
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h2>CIE-2 Admin</h2>
+      </div>
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="menu-item active" id="nav-dashboard">Dashboard</a>
+        <a href="user-management.html" class="menu-item" id="nav-users">User Management</a>
+        <a href="reports.html" class="menu-item" id="nav-reports">Reports & Logs</a>
+      </nav>
+      <div class="sidebar-footer">
+        <span class="user-badge admin-badge">Admin Mode</span>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <h1 id="page-title">Administrator Dashboard</h1>
+        <div class="user-profile">
+          <img src="../../uploads/profile-images/default-avatar.png" alt="Profile" class="profile-pic" onerror="this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=admin'">
+          <span class="profile-name">System Administrator</span>
+        </div>
+      </header>
+
+      <div class="content-body">
+        <!-- Analytics summary -->
+        <section class="grid-layout cols-4">
+          <div class="glass-card metric-card">
+            <h3>Total Users</h3>
+            <p class="metric-value">124</p>
+            <span class="metric-desc">96 Students, 28 Instructors</span>
+          </div>
+          <div class="glass-card metric-card">
+            <h3>Total Submissions</h3>
+            <p class="metric-value">1,402</p>
+            <span class="metric-desc">Evaluated vs Pending</span>
+          </div>
+          <div class="glass-card metric-card">
+            <h3>Server Status</h3>
+            <p class="metric-value text-success">Healthy</p>
+            <span class="metric-desc">Latency: 42ms</span>
+          </div>
+          <div class="glass-card metric-card">
+            <h3>Daily Operations</h3>
+            <p class="metric-value">342</p>
+            <span class="metric-desc">Database operations today</span>
+          </div>
+        </section>
+
+        <!-- System Logs preview -->
+        <section class="glass-card list-section">
+          <div class="section-header">
+            <h2>Recent Action Logs</h2>
+            <a href="reports.html" class="btn btn-secondary">View Detailed Logs</a>
+          </div>
+          <div class="log-console">
+            <div class="log-line"><span class="log-time">[10:42:01]</span> <span class="log-info">INFO:</span> User 4SO23CS001 uploaded 'sub-101.zip' for activity 'act-1'</div>
+            <div class="log-line"><span class="log-time">[10:45:30]</span> <span class="log-info">INFO:</span> Professor Eleanor Vance published new Quiz 'Database Systems Quiz 3'</div>
+            <div class="log-line"><span class="log-time">[10:50:12]</span> <span class="log-warn">WARN:</span> Database load spike detected: 78% connection pool usage</div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="../shared/scripts.js"></script>
+</body>
+</html>

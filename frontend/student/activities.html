@@ -1,0 +1,102 @@
+<!--
+  CIE2-Activity-Management-System
+  File: frontend/student/activities.html
+  Purpose: Displays all activities, quizzes, and tests assigned to the student. Enables filtering and launching tasks.
+  Scalability: Uses standard classes for simple data rendering, easy to hook with fetch API.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Activities | CIE-2 Activity Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body class="dashboard-theme student-portal">
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h2>CIE-2 Portal</h2>
+      </div>
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="menu-item" id="nav-dashboard">Dashboard</a>
+        <a href="activities.html" class="menu-item active" id="nav-activities">Activities & Quizzes</a>
+        <a href="submissions.html" class="menu-item" id="nav-submissions">Submissions</a>
+      </nav>
+      <div class="sidebar-footer">
+        <span class="user-badge student-badge">Student Mode</span>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <h1 id="page-title">Activities & Quizzes</h1>
+        <div class="user-profile">
+          <img src="../../uploads/profile-images/default-avatar.png" alt="Profile" class="profile-pic" onerror="this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=student'">
+          <span class="profile-name">Alex Rivera</span>
+        </div>
+      </header>
+
+      <div class="content-body">
+        <!-- Filter Controls -->
+        <div class="glass-card filter-container">
+          <div class="filter-group">
+            <label for="filter-type">Type:</label>
+            <select id="filter-type" class="form-control">
+              <option value="all">All Types</option>
+              <option value="assignment">Assignments</option>
+              <option value="quiz">Quizzes</option>
+              <option value="exam">Term Exams</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-status">Status:</label>
+            <select id="filter-status" class="form-control">
+              <option value="all">All Statuses</option>
+              <option value="pending">Pending</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Activities Grid -->
+        <div class="grid-layout cols-2" id="activities-list">
+          <!-- Activity 1 -->
+          <div class="glass-card activity-card">
+            <span class="tag tag-lab">Lab Assignment</span>
+            <h3>Data Structures Lab - Trees & Graphs</h3>
+            <p class="description">Implement Binary Search Trees and Depth First / Breadth First traversals in C++.</p>
+            <div class="card-meta">
+              <span class="due-date">Due: Oct 24, 2026</span>
+              <span class="max-marks">Marks: 20</span>
+            </div>
+            <div class="card-action">
+              <a href="submissions.html?id=act-1" class="btn btn-primary btn-block">Go to Submission</a>
+            </div>
+          </div>
+
+          <!-- Activity 2 -->
+          <div class="glass-card activity-card">
+            <span class="tag tag-quiz">Quiz</span>
+            <h3>Database Systems Quiz 3</h3>
+            <p class="description">Multiple choice questions covering SQL triggers, functions, and relational calculus.</p>
+            <div class="card-meta">
+              <span class="due-date">Due: Oct 26, 2026</span>
+              <span class="max-marks">Marks: 10</span>
+            </div>
+            <div class="card-action">
+              <button class="btn btn-primary btn-block" id="start-quiz-btn">Start Quiz</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../shared/scripts.js"></script>
+</body>
+</html>
