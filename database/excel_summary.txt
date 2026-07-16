@@ -1,0 +1,675 @@
+
+=======================================================
+File: STUDENT_DATABASE_FINAL.xlsx
+=======================================================
+Total Rows: 133
+Columns: A, B, C, D
+Row   1 : | STUDENT DATABASE               |                                |                                |                                |
+Row   3 : | Roll No.                       | NAME OF STUDENETS              | DIV                            | ZRPN                           |
+Row   4 : | IT1101                         | ISHWARI SHAMRAO ADE            | A                              | 125UIT1103                     |
+Row   5 : | IT1102                         | ROHIT ASHOK BADAK              | A                              | 125UIT1095                     |
+Row   6 : | IT1103                         | PRERANA SANDIP BANKAR          | A                              | 125UIT1036                     |
+Row   7 : | IT1104                         | GAYATRI SANTOSH BARGAJE        | A                              | 125UIT1029                     |
+Row   8 : | IT1105                         | SOHAM ABHAY BHAVSAR            | A                              | 125UIT1090                     |
+Row   9 : | IT1106                         | AYUSH RAMBHAU BORKAR           | A                              | 125UIT1148                     |
+Row  10 : | IT1107                         | CHAITANYA JYOTIRAM BHOSALE     | A                              | 125UIT1061                     |
+Row  11 : | IT1108                         | PRANAV SHARAD CHOLE            | A                              | 125UIT1137                     |
+Row  12 : | IT1109                         | PRUTHVIRAJ AMAR DALVE          | A                              | 125UIT1074                     |
+Row  13 : | IT1110                         | SUMIT KISHOR DAVHALE           | A                              | 125UIT1147                     |
+Row  14 : | IT1111                         | MADHUR SANJAY DHADVE           | A                              | 125UIT1189                     |
+Row  15 : | IT1112                         | DIVY ANIL KOKATE               | A                              | 125UIT1092                     |
+Row  16 : | IT1113                         | SHIVAMSINGH NARENDRASINGH DIXI | A                              | 125UIT1165                     |
+Row  17 : | IT1114                         | PRANAV PRAVIN DOLASE           | A                              | 125UIT1122                     |
+Row  18 : | IT1115                         | RISHI ASHOK GADAKH             | A                              | 125UIT1107                     |
+Row  19 : | IT1116                         | SUJIT ARUN GARJE               | A                              | 125UIT1065                     |
+Row  20 : | IT1117                         | GAURAV RAJENDRA NANVARE        | A                              | 125UIT1125                     |
+Row  21 : | IT1118                         | SWARA SANTOSH GHARAT           | A                              | 125UIT1212                     |
+Row  22 : | IT1119                         | ARJUN GAJANAN GHULE            | A                              | 125UIT1019                     |
+Row  23 : | IT1120                         | SWARAJ VISHNU GODAMBE          | A                              | 125UIT1130                     |
+Row  24 : | IT1121                         | YUVRAJSINHA RAVINDRA GOUR      | A                              | 125UIT1033                     |
+Row  25 : | IT1122                         | PRUTHVIRAJ PRABHU INGLE        | A                              | 125UIT1116                     |
+Row  26 : | IT1123                         | PRANAV PREMNATH KADAM          | A                              | 125UIT1085                     |
+Row  27 : | IT1124                         | RASIKA SUHAS KALAMKAR          | A                              | 125UIT1017                     |
+Row  28 : | IT1125                         | KISHOR MARATHE KANHAIYA        | A                              | 125UIT1066                     |
+Row  29 : | IT1126                         | AYUSHI KIRAN KAWADE            | A                              | 125UIT1192                     |
+Row  30 : | IT1127                         | SURAJ UDDHAV KHEDKAR           | A                              | 125UIT1204                     |
+Row  31 : | IT1128                         | SAMRUDDHI SHAILESH KHODADE     | A                              | 125UIT1131                     |
+Row  32 : | IT1129                         | RIDDHI KRUSHNA KHODE           | A                              | 125UIT1016                     |
+Row  33 : | IT1130                         | SHUBHAM PRAVIN LAHAMGE         | A                              | 125UIT1001                     |
+Row  34 : | IT1131                         | ARNAV RAJAN MACHAREKAR         | A                              | 125UIT1211                     |
+Row  35 : | IT1132                         | ADITYA SUNIL MAHURE            | A                              | 125UIT1035                     |
+Row  36 : | IT1133                         | BUSHARA MEHMUD MOMIN           | A                              | 125UIT1197                     |
+Row  37 : | IT1134                         | MAHESHWARI SANDIP OROKAR       | A                              | 125UIT1038                     |
+Row  38 : | IT1135                         | SURAJ NARESH PADWAL            | A                              | 125UIT1048                     |
+Row  39 : | IT1136                         | ROHAN RAMESH PANCHAL           | A                              | 125UIT1111                     |
+Row  40 : | IT1137                         | ROHINI GAUDAPPA PATIL          | A                              | 125UIT1040                     |
+Row  41 : | IT1138                         | KARAN BABURAO PAWAR            | A                              | 125UIT1076                     |
+Row  42 : | IT1139                         | SATYAM HIRAMAN PAWAR           | A                              | 125UIT1067                     |
+Row  43 : | IT1140                         | SHUBHANGI VIJAY PAYGUDE        | A                              | 125UIT1118                     |
+Row  44 : | IT1141                         | TUSHAR VIVEK POTDAR            | A                              | 125UIT1139                     |
+Row  45 : | IT1142                         | RUCHIRA RAVI POTRAJE           | A                              | 125UIT1075                     |
+Row  46 : | IT1143                         | VIVEK KULKARNI PRASAD          | A                              | 125UIT1187                     |
+Row  47 : | IT1144                         | PAVAN AMAR RAMGUDE             | A                              | 125UIT1155                     |
+Row  48 : | IT1145                         | DISHA AVINASH RATHOD           | A                              | 125UIT1108                     |
+Row  49 : | IT1146                         | RAJ NEPAL RATHOD               | A                              | 125UIT1043                     |
+Row  50 : | IT1147                         | RUTUJA SANJIVKUMAR PANCHAL     | A                              | 125UIT1182                     |
+Row  51 : | IT1148                         | SADICHHA KALIDAS PAWAR         | A                              | 125UIT1199                     |
+Row  52 : | IT1149                         | ADITYA PANDHARINATH SATPUTE    | A                              | 125UIT1132                     |
+Row  53 : | IT1150                         | AJAY VINOD SHEVARE             | A                              | 125UIT1080                     |
+Row  54 : | IT1151                         | TEJASWINI PRAKASH SHINDE       | A                              | 125UIT1171                     |
+Row  55 : | IT1152                         | SHRAWANI KRISHNA ROKDE         | A                              | 125UIT1180                     |
+Row  56 : | IT1153                         | SHRINIDHI MADHAV SHINDE        | A                              | 125UIT1004                     |
+Row  57 : | IT1154                         | SHUBHAM MACHHINDRA SURVASE     | A                              | 125UIT1120                     |
+Row  58 : | IT1155                         | SIDDHESH VINODKUMAR DHAVALE    | A                              | 125UIT1209                     |
+Row  59 : | IT1156                         | NAVYA RAJKUMAR SINGH           | A                              | 125UIT1110                     |
+Row  60 : | IT1157                         | SOHAM SIDDHESHWAR SOLANKAR     | A                              | 125UIT1024                     |
+Row  61 : | IT1159                         | SUCHITA RAMCHANDRA SIHORE      | A                              | 125UIT1140                     |
+Row  62 : | IT1160                         | VALLABH KSHITIJ SURVE          | A                              | 125UIT1086                     |
+Row  63 : | IT1161                         | SWARANJALI OMPRAKASH GHODKE    | A                              | 125UIT1145                     |
+Row  64 : | IT1162                         | SWAROOP SATISH PARDESHI        | A                              | 125UIT1206                     |
+Row  65 : | IT1163                         | PARTH NITIN TANTAK             | A                              | 125UIT1002                     |
+Row  66 : | IT1164                         | MAYURI MAROTI UGLE             | A                              | 125UIT1022                     |
+Row  67 : | IT1165                         | SOHAM SHASHIKANT UNDALE        | A                              | 125UIT1195                     |
+Row  68 : | IT1166                         | VAISHNAVI AVINASH KANDHARE     | A                              | 125UIT1156                     |
+Row  69 : | IT1167                         | SRUSHTI SANTOSH WAGHMALE       | A                              | 125UIT1149                     |
+Row  70 : | IT1201                         | ASHWINI SAMBHAJI ANPAT         | B                              | 125UIT1101                     |
+Row  71 : | IT1202                         | RAMESH PATIL ARYAN             | B                              | 125UIT1104                     |
+Row  72 : | IT1203                         | SOHAM SACHIN BAHIRAT           | B                              | 125UIT1082                     |
+Row  73 : | IT1204                         | PRATIK HANMANT BHADRE          | B                              | 125UIT1012                     |
+Row  74 : | IT1205                         | SHRADHA SHIVANAND BIRADAR      | B                              | 125UIT1039                     |
+Row  75 : | IT1206                         | MAYURA SANTOSH BOBADE          | B                              | 125UIT1089                     |
+Row  76 : | IT1207                         | ROHAN GAJANAN DAMARE           | B                              | 125UIT1053                     |
+Row  77 : | IT1208                         | YASH MANOJ DUBEY               | B                              | 125UIT1006                     |
+Row  78 : | IT1209                         | SHRUTI SANTOSHRAO FUND         | B                              | 125UIT1023                     |
+Row  79 : | IT1210                         | ANUSHKA BHUSHAN GARSE          | B                              | 125UIT1060                     |
+Row  80 : | IT1211                         | SHRIPRASAD DHANANJAY GHONE     | B                              | 125UIT1205                     |
+Row  81 : | IT1212                         | DHRUV AMAR GODSE               | B                              | 125UIT1073                     |
+Row  82 : | IT1213                         | KISHOR BHALEKAR GRISHMA        | B                              | 125UIT1154                     |
+Row  83 : | IT1214                         | PRANAY DATTA HAPSE             | B                              | 125UIT1128                     |
+Row  84 : | IT1215                         | HARSHITA JIGNESH MEHTA         | B                              | 125UIT1037                     |
+Row  85 : | IT1216                         | YASH VINODBHAI JADHAV          | B                              | 125UIT1142                     |
+Row  86 : | IT1217                         | BHAVANA BALRAM JAKKA           | B                              | 125UIT1124                     |
+Row  87 : | IT1218                         | CHANVIR SHIVPUTRA JAMADAR      | B                              | 125UIT1030                     |
+Row  88 : | IT1219                         | SHLOK MILIND KAKADE            | B                              | 125UIT1159                     |
+Row  89 : | IT1220                         | SUMIT SUBHASH KALE             | B                              | 125UIT1179                     |
+Row  90 : | IT1221                         | SHAILAJA SURESH KAMBLE         | B                              | 125UIT1100                     |
+Row  91 : | IT1222                         | SHUBHAM BASWANT KANDURKE       | B                              | 125UIT1163                     |
+Row  92 : | IT1223                         | SHYAMSUNDAR RAMDAS KANTHALE    | B                              | 125UIT1183                     |
+Row  93 : | IT1224                         | ANKITA RAMESHWAR KHURUSANE     | B                              | 125UIT1176                     |
+Row  94 : | IT1225                         | JAY SAHEBRAO KOHINKAR          | B                              | 125UIT1083                     |
+Row  95 : | IT1226                         | KULASHREE HITENDRA KULKARNI    | B                              | 125UIT1146                     |
+Row  96 : | IT1227                         | MEGHRAJ DEEPAK MASKE           | B                              | 125UIT1056                     |
+Row  97 : | IT1228                         | KHUSHHALI PRAMOD MISHRA        | B                              | 125UIT1008                     |
+Row  98 : | IT1229                         | PRITI DAYANAND MULE            | B                              | 125UIT1021                     |
+Row  99 : | IT1230                         | PAPPU KANOUJIYA NIKHIL         | B                              | 125UIT1203                     |
+Row 100 : | IT1231                         | GAYATRI PRASHANT PATIL         | B                              | 125UIT1028                     |
+Row 101 : | IT1232                         | VIGHNESH KAILAS PATIL          | B                              | 125UIT1009                     |
+Row 102 : | IT1233                         | YASHWANT TANAJI PATIL          | B                              | 125UIT1068                     |
+Row 103 : | IT1234                         | UTKARSH YOGESH PAWAR           | B                              | 125UIT1123                     |
+Row 104 : | IT1235                         | ROSHAN HATZADE PRANIT          | B                              | 125UIT1051                     |
+Row 105 : | IT1236                         | SUHAS KASHID PRATHAMESH        | B                              | 125UIT1109                     |
+Row 106 : | IT1237                         | GAURAV GANESH SALAVE           | B                              | 125UIT1138                     |
+Row 107 : | IT1238                         | RAKHI SURESH SALUNKE           | B                              | 125UIT1052                     |
+Row 108 : | IT1239                         | RAHUL SATHE SAMIKSHA           | B                              | 125UIT1119                     |
+Row 109 : | IT1240                         | SWAYAM PRAKASH SAMRATKAR       | B                              | 125UIT1013                     |
+Row 110 : | IT1241                         | GAURAV VIJAYANAND SANGORE      | B                              | 125UIT1135                     |
+Row 111 : | IT1242                         | SAKSHI SUNIL SAWALE            | B                              | 125UIT1042                     |
+Row 112 : | IT1243                         | MEGHRAJ KISHOR SHAHANE         | B                              | 125UIT1136                     |
+Row 113 : | IT1244                         | GAURI SANTOSH SHENDAGE         | B                              | 125UIT1105                     |
+Row 114 : | IT1245                         | VAISHNAVI SHAHAJI SHIVADE      | B                              | 125UIT1127                     |
+Row 115 : | IT1246                         | SANDIP WAVDHANE SHRUTI         | B                              | 125UIT1034                     |
+Row 116 : | IT1247                         | IRAM UZAIR AHMAD SIDDIQUI      | B                              | 125UIT1208                     |
+Row 117 : | IT1248                         | MAYUR MADHAV SOMWARE           | B                              | 125UIT1106                     |
+Row 118 : | IT1249                         | MANASI SANDIP SONAWANE         | B                              | 125UIT1186                     |
+Row 119 : | IT1250                         | MANSI ROHIDAS SONAWANE         | B                              | 125UIT1077                     |
+Row 120 : | IT1251                         | ATHARV SANJAY SONI             | B                              | 125UIT1062                     |
+Row 121 : | IT1252                         | SURESH KHAIRE SUDIKSHA         | B                              | 125UIT1078                     |
+Row 122 : | IT1253                         | DIPESH SAWANT SUSMIT           | B                              | 125UIT1049                     |
+Row 123 : | IT1254                         | SAMARTHA VISHAL SUTAR          | B                              | 125UIT1014                     |
+Row 124 : | IT1255                         | SNEHA VIVEK SWAMI              | B                              | 125UIT1046                     |
+Row 125 : | IT1256                         | IQRA IRFAN TAMBOLI             | B                              | 125UIT1005                     |
+Row 126 : | IT1257                         | BASVARAJ UMAKANT TAMMEWAR      | B                              | 125UIT1091                     |
+Row 127 : | IT1258                         | UDAY SUNIL TEMBHURNE           | B                              | 125UIT1010                     |
+Row 128 : | IT1259                         | AADESH RAMESHWAR THANGE        | B                              | 125UIT1058                     |
+Row 129 : | IT1260                         | VARUN TAPISE VASUNDHARA        | B                              | 125UIT1210                     |
+Row 130 : | IT1261                         | ATHARV NAGESH VYAVAHARE        | B                              | 125UIT1045                     |
+Row 131 : | IT1262                         | SHUBHAM CHANDRAKANT WANKHEDE   | B                              | 125UIT1168                     |
+Row 132 : | IT1263                         | SHREYA SUDAM WAPHARE           | B                              | 125UIT1152                     |
+Row 133 : | IT1264                         | JANHAVI HEMANT WAVHAL          | B                              | 125UIT1126                     |
+Row 134 : | IT1265                         | SAKSHI RAHUL ZENDE             | B                              | 125UIT1200                     |
+=======================================================
+File: STUDENT_DATABASE_UPDATED.xlsx
+=======================================================
+Total Rows: 133
+Columns: A, B, C, D
+Row   1 : |                                |                                |                                |                                |
+Row   3 : |                                |                                |                                |                                |
+Row   4 : |                                |                                |                                |                                |
+Row   5 : |                                |                                |                                |                                |
+Row   6 : |                                |                                |                                |                                |
+Row   7 : |                                |                                |                                |                                |
+Row   8 : |                                |                                |                                |                                |
+Row   9 : |                                |                                |                                |                                |
+Row  10 : |                                |                                |                                |                                |
+Row  11 : |                                |                                |                                |                                |
+Row  12 : |                                |                                |                                |                                |
+Row  13 : |                                |                                |                                |                                |
+Row  14 : |                                |                                |                                |                                |
+Row  15 : |                                |                                |                                |                                |
+Row  16 : |                                |                                |                                |                                |
+Row  17 : |                                |                                |                                |                                |
+Row  18 : |                                |                                |                                |                                |
+Row  19 : |                                |                                |                                |                                |
+Row  20 : |                                |                                |                                |                                |
+Row  21 : |                                |                                |                                |                                |
+Row  22 : |                                |                                |                                |                                |
+Row  23 : |                                |                                |                                |                                |
+Row  24 : |                                |                                |                                |                                |
+Row  25 : |                                |                                |                                |                                |
+Row  26 : |                                |                                |                                |                                |
+Row  27 : |                                |                                |                                |                                |
+Row  28 : |                                |                                |                                |                                |
+Row  29 : |                                |                                |                                |                                |
+Row  30 : |                                |                                |                                |                                |
+Row  31 : |                                |                                |                                |                                |
+Row  32 : |                                |                                |                                |                                |
+Row  33 : |                                |                                |                                |                                |
+Row  34 : |                                |                                |                                |                                |
+Row  35 : |                                |                                |                                |                                |
+Row  36 : |                                |                                |                                |                                |
+Row  37 : |                                |                                |                                |                                |
+Row  38 : |                                |                                |                                |                                |
+Row  39 : |                                |                                |                                |                                |
+Row  40 : |                                |                                |                                |                                |
+Row  41 : |                                |                                |                                |                                |
+Row  42 : |                                |                                |                                |                                |
+Row  43 : |                                |                                |                                |                                |
+Row  44 : |                                |                                |                                |                                |
+Row  45 : |                                |                                |                                |                                |
+Row  46 : |                                |                                |                                |                                |
+Row  47 : |                                |                                |                                |                                |
+Row  48 : |                                |                                |                                |                                |
+Row  49 : |                                |                                |                                |                                |
+Row  50 : |                                |                                |                                |                                |
+Row  51 : |                                |                                |                                |                                |
+Row  52 : |                                |                                |                                |                                |
+Row  53 : |                                |                                |                                |                                |
+Row  54 : |                                |                                |                                |                                |
+Row  55 : |                                |                                |                                |                                |
+Row  56 : |                                |                                |                                |                                |
+Row  57 : |                                |                                |                                |                                |
+Row  58 : |                                |                                |                                |                                |
+Row  59 : |                                |                                |                                |                                |
+Row  60 : |                                |                                |                                |                                |
+Row  61 : |                                |                                |                                |                                |
+Row  62 : |                                |                                |                                |                                |
+Row  63 : |                                |                                |                                |                                |
+Row  64 : |                                |                                |                                |                                |
+Row  65 : |                                |                                |                                |                                |
+Row  66 : |                                |                                |                                |                                |
+Row  67 : |                                |                                |                                |                                |
+Row  68 : |                                |                                |                                |                                |
+Row  69 : |                                |                                |                                |                                |
+Row  70 : |                                |                                |                                |                                |
+Row  71 : |                                |                                |                                |                                |
+Row  72 : |                                |                                |                                |                                |
+Row  73 : |                                |                                |                                |                                |
+Row  74 : |                                |                                |                                |                                |
+Row  75 : |                                |                                |                                |                                |
+Row  76 : |                                |                                |                                |                                |
+Row  77 : |                                |                                |                                |                                |
+Row  78 : |                                |                                |                                |                                |
+Row  79 : |                                |                                |                                |                                |
+Row  80 : |                                |                                |                                |                                |
+Row  81 : |                                |                                |                                |                                |
+Row  82 : |                                |                                |                                |                                |
+Row  83 : |                                |                                |                                |                                |
+Row  84 : |                                |                                |                                |                                |
+Row  85 : |                                |                                |                                |                                |
+Row  86 : |                                |                                |                                |                                |
+Row  87 : |                                |                                |                                |                                |
+Row  88 : |                                |                                |                                |                                |
+Row  89 : |                                |                                |                                |                                |
+Row  90 : |                                |                                |                                |                                |
+Row  91 : |                                |                                |                                |                                |
+Row  92 : |                                |                                |                                |                                |
+Row  93 : |                                |                                |                                |                                |
+Row  94 : |                                |                                |                                |                                |
+Row  95 : |                                |                                |                                |                                |
+Row  96 : |                                |                                |                                |                                |
+Row  97 : |                                |                                |                                |                                |
+Row  98 : |                                |                                |                                |                                |
+Row  99 : |                                |                                |                                |                                |
+Row 100 : |                                |                                |                                |                                |
+Row 101 : |                                |                                |                                |                                |
+Row 102 : |                                |                                |                                |                                |
+Row 103 : |                                |                                |                                |                                |
+Row 104 : |                                |                                |                                |                                |
+Row 105 : |                                |                                |                                |                                |
+Row 106 : |                                |                                |                                |                                |
+Row 107 : |                                |                                |                                |                                |
+Row 108 : |                                |                                |                                |                                |
+Row 109 : |                                |                                |                                |                                |
+Row 110 : |                                |                                |                                |                                |
+Row 111 : |                                |                                |                                |                                |
+Row 112 : |                                |                                |                                |                                |
+Row 113 : |                                |                                |                                |                                |
+Row 114 : |                                |                                |                                |                                |
+Row 115 : |                                |                                |                                |                                |
+Row 116 : |                                |                                |                                |                                |
+Row 117 : |                                |                                |                                |                                |
+Row 118 : |                                |                                |                                |                                |
+Row 119 : |                                |                                |                                |                                |
+Row 120 : |                                |                                |                                |                                |
+Row 121 : |                                |                                |                                |                                |
+Row 122 : |                                |                                |                                |                                |
+Row 123 : |                                |                                |                                |                                |
+Row 124 : |                                |                                |                                |                                |
+Row 125 : |                                |                                |                                |                                |
+Row 126 : |                                |                                |                                |                                |
+Row 127 : |                                |                                |                                |                                |
+Row 128 : |                                |                                |                                |                                |
+Row 129 : |                                |                                |                                |                                |
+Row 130 : |                                |                                |                                |                                |
+Row 131 : |                                |                                |                                |                                |
+Row 132 : |                                |                                |                                |                                |
+Row 133 : |                                |                                |                                |                                |
+Row 134 : |                                |                                |                                |                                |
+=======================================================
+File: STUDENT DATABASE.xlsx
+=======================================================
+Total Rows: 133
+Columns: A, B, C, D
+Row   1 : | STUDENT DATABASE               |                                |                                |                                |
+Row   3 : | Roll No.                       | Name of Student                | DIV                            | ZRPN                           |
+Row   4 : | IT1101                         | ADE ISHWARI SHAMRAO            | A                              |                                |
+Row   5 : | IT1102                         | BADAK ROHIT ASHOK              | A                              |                                |
+Row   6 : | IT1103                         | BANKAR PRERANA SANDIP          | A                              |                                |
+Row   7 : | IT1104                         | BARGAJE GAYATRI SANTOSH        | A                              |                                |
+Row   8 : | IT1105                         | BHAVSAR SOHAM ABHAY            | A                              |                                |
+Row   9 : | IT1106                         | BORKAR AYUSH RAMBHAU           | A                              |                                |
+Row  10 : | IT1107                         | CHAITANYA JYOTIRAM BHOSALE     | A                              |                                |
+Row  11 : | IT1108                         | CHOLE PRANAV SHARAD            | A                              |                                |
+Row  12 : | IT1109                         | DALVE PRUTHVIRAJ AMAR          | A                              |                                |
+Row  13 : | IT1110                         | DAVHALE SUMIT KISHOR           | A                              |                                |
+Row  14 : | IT1111                         | DHADVE MADHUR SANJAY           | A                              |                                |
+Row  15 : | IT1112                         | DIVY ANIL KOKATE               | A                              |                                |
+Row  16 : | IT1113                         | DIXIT SHIVAMSINGH NARENDRASING | A                              |                                |
+Row  17 : | IT1114                         | DOLASE PRANAV PRAVIN           | A                              |                                |
+Row  18 : | IT1115                         | GADAKH RISHI ASHOK             | A                              |                                |
+Row  19 : | IT1116                         | GARJE SUJIT ARUN               | A                              |                                |
+Row  20 : | IT1117                         | GAURAV RAJENDRA NANVARE        | A                              |                                |
+Row  21 : | IT1118                         | GHARAT SWARA SANTOSH           | A                              |                                |
+Row  22 : | IT1119                         | GHULE ARJUN GAJANAN            | A                              |                                |
+Row  23 : | IT1120                         | GODAMBE SWARAJ VISHNU          | A                              |                                |
+Row  24 : | IT1121                         | GOUR YUVRAJSINHA RAVINDRA      | A                              |                                |
+Row  25 : | IT1122                         | INGLE PRUTHVIRAJ PRABHU        | A                              |                                |
+Row  26 : | IT1123                         | KADAM PRANAV PREMNATH          | A                              |                                |
+Row  27 : | IT1124                         | KALAMKAR RASIKA SUHAS          | A                              |                                |
+Row  28 : | IT1125                         | KANHAIYA KISHOR MARATHE        | A                              |                                |
+Row  29 : | IT1126                         | KAWADE AYUSHI KIRAN            | A                              |                                |
+Row  30 : | IT1127                         | KHEDKAR SURAJ UDDHAV           | A                              |                                |
+Row  31 : | IT1128                         | KHODADE SAMRUDDHI SHAILESH     | A                              |                                |
+Row  32 : | IT1129                         | KHODE RIDDHI KRUSHNA           | A                              |                                |
+Row  33 : | IT1130                         | LAHAMGE SHUBHAM PRAVIN         | A                              |                                |
+Row  34 : | IT1131                         | MACHAREKAR ARNAV RAJAN         | A                              |                                |
+Row  35 : | IT1132                         | MAHURE ADITYA SUNIL            | A                              |                                |
+Row  36 : | IT1133                         | MOMIN BUSHARA MEHMUD           | A                              |                                |
+Row  37 : | IT1134                         | OROKAR MAHESHWARI SANDIP       | A                              |                                |
+Row  38 : | IT1135                         | PADWAL SURAJ NARESH            | A                              |                                |
+Row  39 : | IT1136                         | PANCHAL ROHAN RAMESH           | A                              |                                |
+Row  40 : | IT1137                         | PATIL ROHINI GAUDAPPA          | A                              |                                |
+Row  41 : | IT1138                         | PAWAR KARAN BABURAO            | A                              |                                |
+Row  42 : | IT1139                         | PAWAR SATYAM HIRAMAN           | A                              |                                |
+Row  43 : | IT1140                         | PAYGUDE SHUBHANGI VIJAY        | A                              |                                |
+Row  44 : | IT1141                         | POTDAR TUSHAR VIVEK            | A                              |                                |
+Row  45 : | IT1142                         | POTRAJE RUCHIRA RAVI           | A                              |                                |
+Row  46 : | IT1143                         | PRASAD VIVEK KULKARNI          | A                              |                                |
+Row  47 : | IT1144                         | RAMGUDE PAVAN AMAR             | A                              |                                |
+Row  48 : | IT1145                         | RATHOD DISHA AVINASH           | A                              |                                |
+Row  49 : | IT1146                         | RATHOD RAJ NEPAL               | A                              |                                |
+Row  50 : | IT1147                         | RUTUJA SANJIVKUMAR PANCHAL     | A                              |                                |
+Row  51 : | IT1148                         | SADICHHA KALIDAS PAWAR         | A                              |                                |
+Row  52 : | IT1149                         | SATPUTE ADITYA PANDHARINATH    | A                              |                                |
+Row  53 : | IT1150                         | SHEVARE AJAY VINOD             | A                              |                                |
+Row  54 : | IT1151                         | SHINDE TEJASWINI PRAKASH       | A                              |                                |
+Row  55 : | IT1152                         | SHRAWANI KRISHNA ROKDE         | A                              |                                |
+Row  56 : | IT1153                         | SHRINIDHI MADHAV SHINDE        | A                              |                                |
+Row  57 : | IT1154                         | SHUBHAM MACHHINDRA SURVASE     | A                              |                                |
+Row  58 : | IT1155                         | SIDDHESH VINODKUMAR DHAVALE    | A                              |                                |
+Row  59 : | IT1156                         | SINGH NAVYA RAJKUMAR           | A                              |                                |
+Row  60 : | IT1157                         | SOLANKAR SOHAM SIDDHESHWAR     | A                              |                                |
+Row  61 : | IT1159                         | SUCHITA RAMCHANDRA SIHORE      | A                              |                                |
+Row  62 : | IT1160                         | SURVE VALLABH KSHITIJ          | A                              |                                |
+Row  63 : | IT1161                         | SWARANJALI OMPRAKASH GHODKE    | A                              |                                |
+Row  64 : | IT1162                         | SWAROOP SATISH PARDESHI        | A                              |                                |
+Row  65 : | IT1163                         | TANTAK PARTH NITIN             | A                              |                                |
+Row  66 : | IT1164                         | UGLE MAYURI MAROTI             | A                              |                                |
+Row  67 : | IT1165                         | UNDALE SOHAM SHASHIKANT        | A                              |                                |
+Row  68 : | IT1166                         | VAISHNAVI AVINASH KANDHARE     | A                              |                                |
+Row  69 : | IT1167                         | WAGHMALE SRUSHTI SANTOSH       | A                              |                                |
+Row  70 : | IT1201                         | ANPAT ASHWINI SAMBHAJI         | B                              |                                |
+Row  71 : | IT1202                         | ARYAN RAMESH PATIL             | B                              |                                |
+Row  72 : | IT1203                         | BAHIRAT SOHAM SACHIN           | B                              |                                |
+Row  73 : | IT1204                         | BHADRE PRATIK HANMANT          | B                              |                                |
+Row  74 : | IT1205                         | BIRADAR SHRADHA SHIVANAND      | B                              |                                |
+Row  75 : | IT1206                         | BOBADE MAYURA SANTOSH          | B                              |                                |
+Row  76 : | IT1207                         | DAMARE ROHAN GAJANAN           | B                              |                                |
+Row  77 : | IT1208                         | DUBEY YASH MANOJ               | B                              |                                |
+Row  78 : | IT1209                         | FUND SHRUTI SANTOSHRAO         | B                              |                                |
+Row  79 : | IT1210                         | GARSE ANUSHKA BHUSHAN          | B                              |                                |
+Row  80 : | IT1211                         | GHONE SHRIPRASAD DHANANJAY     | B                              |                                |
+Row  81 : | IT1212                         | GODSE DHRUV AMAR               | B                              |                                |
+Row  82 : | IT1213                         | GRISHMA KISHOR BHALEKAR        | B                              |                                |
+Row  83 : | IT1214                         | HAPSE PRANAY DATTA             | B                              |                                |
+Row  84 : | IT1215                         | HARSHITA JIGNESH MEHTA         | B                              |                                |
+Row  85 : | IT1216                         | JADHAV YASH VINODBHAI          | B                              |                                |
+Row  86 : | IT1217                         | JAKKA BHAVANA BALRAM           | B                              |                                |
+Row  87 : | IT1218                         | JAMADAR CHANVIR SHIVPUTRA      | B                              |                                |
+Row  88 : | IT1219                         | KAKADE SHLOK MILIND            | B                              |                                |
+Row  89 : | IT1220                         | KALE SUMIT SUBHASH             | B                              |                                |
+Row  90 : | IT1221                         | KAMBLE SHAILAJA SURESH         | B                              |                                |
+Row  91 : | IT1222                         | KANDURKE SHUBHAM BASWANT       | B                              |                                |
+Row  92 : | IT1223                         | KANTHALE SHYAMSUNDAR RAMDAS    | B                              |                                |
+Row  93 : | IT1224                         | KHURUSANE ANKITA RAMESHWAR     | B                              |                                |
+Row  94 : | IT1225                         | KOHINKAR JAY SAHEBRAO          | B                              |                                |
+Row  95 : | IT1226                         | KULKARNI KULASHREE HITENDRA    | B                              |                                |
+Row  96 : | IT1227                         | MASKE MEGHRAJ DEEPAK           | B                              |                                |
+Row  97 : | IT1228                         | MISHRA KHUSHHALI PRAMOD        | B                              |                                |
+Row  98 : | IT1229                         | MULE PRITI DAYANAND            | B                              |                                |
+Row  99 : | IT1230                         | NIKHIL PAPPU KANOUJIYA         | B                              |                                |
+Row 100 : | IT1231                         | PATIL GAYATRI PRASHANT         | B                              |                                |
+Row 101 : | IT1232                         | PATIL VIGHNESH KAILAS          | B                              |                                |
+Row 102 : | IT1233                         | PATIL YASHWANT TANAJI          | B                              |                                |
+Row 103 : | IT1234                         | PAWAR UTKARSH YOGESH           | B                              |                                |
+Row 104 : | IT1235                         | PRANIT ROSHAN HATZADE          | B                              |                                |
+Row 105 : | IT1236                         | PRATHAMESH SUHAS KASHID        | B                              |                                |
+Row 106 : | IT1237                         | SALAVE GAURAV GANESH           | B                              |                                |
+Row 107 : | IT1238                         | SALUNKE RAKHI SURESH           | B                              |                                |
+Row 108 : | IT1239                         | SAMIKSHA RAHUL SATHE           | B                              |                                |
+Row 109 : | IT1240                         | SAMRATKAR SWAYAM PRAKASH       | B                              |                                |
+Row 110 : | IT1241                         | SANGORE GAURAV VIJAYANAND      | B                              |                                |
+Row 111 : | IT1242                         | SAWALE SAKSHI SUNIL            | B                              |                                |
+Row 112 : | IT1243                         | SHAHANE MEGHRAJ KISHOR         | B                              |                                |
+Row 113 : | IT1244                         | SHENDAGE GAURI SANTOSH         | B                              |                                |
+Row 114 : | IT1245                         | SHIVADE VAISHNAVI SHAHAJI      | B                              |                                |
+Row 115 : | IT1246                         | SHRUTI SANDIP WAVDHANE         | B                              |                                |
+Row 116 : | IT1247                         | SIDDIQUI IRAM UZAIR AHMAD      | B                              |                                |
+Row 117 : | IT1248                         | SOMWARE MAYUR MADHAV           | B                              |                                |
+Row 118 : | IT1249                         | SONAWANE MANASI SANDIP         | B                              |                                |
+Row 119 : | IT1250                         | SONAWANE MANSI ROHIDAS         | B                              |                                |
+Row 120 : | IT1251                         | SONI ATHARV SANJAY             | B                              |                                |
+Row 121 : | IT1252                         | SUDIKSHA SURESH KHAIRE         | B                              |                                |
+Row 122 : | IT1253                         | SUSMIT DIPESH SAWANT           | B                              |                                |
+Row 123 : | IT1254                         | SUTAR SAMARTHA VISHAL          | B                              |                                |
+Row 124 : | IT1255                         | SWAMI SNEHA VIVEK              | B                              |                                |
+Row 125 : | IT1256                         | TAMBOLI IQRA IRFAN             | B                              |                                |
+Row 126 : | IT1257                         | TAMMEWAR BASVARAJ UMAKANT      | B                              |                                |
+Row 127 : | IT1258                         | TEMBHURNE UDAY SUNIL           | B                              |                                |
+Row 128 : | IT1259                         | THANGE AADESH RAMESHWAR        | B                              |                                |
+Row 129 : | IT1260                         | VASUNDHARA VARUN TAPISE        | B                              |                                |
+Row 130 : | IT1261                         | VYAVAHARE ATHARV NAGESH        | B                              |                                |
+Row 131 : | IT1262                         | WANKHEDE SHUBHAM CHANDRAKANT   | B                              |                                |
+Row 132 : | IT1263                         | WAPHARE SHREYA SUDAM           | B                              |                                |
+Row 133 : | IT1264                         | WAVHAL JANHAVI HEMANT          | B                              |                                |
+Row 134 : | IT1265                         | ZENDE SAKSHI RAHUL             | B                              |                                |
+=======================================================
+File: TO BE SORTED ZRPN.xlsx
+=======================================================
+Total Rows: 196
+Columns: A, B
+Row   2 : | ZPRN                           | Name of The Student            |
+Row   3 : | 125UIT1103                     | ADE ISHWARI SHAMRAO            |
+Row   4 : | 125UIT1095                     | ROHIT ASHOK BADAK              |
+Row   5 : | 125UIT1036                     | PRERANA SANDIP BANKAR          |
+Row   6 : | 125UIT1029                     | GAYATRI SANTOSH BARGAJE        |
+Row   7 : | 125UIT1090                     | SOHAM ABHAY BHAVSAR            |
+Row   8 : | 125UIT1148                     | AYUSH RAMBHAU BORKAR           |
+Row   9 : | 125UIT1061                     | CHAITANYA JYOTIRAM BHOSALE     |
+Row  10 : | 125UIT1137                     | PRANAV SHARAD CHOLE            |
+Row  11 : | 125UIT1074                     | PRUTHVIRAJ AMAR DALVE          |
+Row  12 : | 125UIT1147                     | SUMIT KISHOR DAVHALE           |
+Row  13 : | 125UIT1189                     | MADHUR SANJAY DHADVE           |
+Row  14 : | 125UIT1092                     | DIVY ANIL KOKATE               |
+Row  15 : | 125UIT1165                     | DIXIT SHIVAMSINGH NARENDRASING |
+Row  16 : | 125UIT1122                     | PRANAV PRAVIN DOLASE           |
+Row  17 : | 125UIT1107                     | GADAKH RISHI ASHOK             |
+Row  18 : | 125UIT1065                     | SUJIT ARUN GARJE               |
+Row  19 : | 125UIT1125                     | GAURAV RAJENDRA NANVARE        |
+Row  20 : | 125UIT1212                     | SWARA SANTOSH GHARAT           |
+Row  21 : | 125UIT1019                     | ARJUN GAJANAN GHULE            |
+Row  22 : | 125UIT1130                     | SWARAJ VISHNU GODAMBE          |
+Row  23 : | 125UIT1033                     | YUVRAJSINHA RAVINDRA GOUR      |
+Row  24 : | 125UIT1116                     | PRUTHVIRAJ PRABHU INGLE        |
+Row  25 : | 125UIT1085                     | PRANAV PREMNATH KADAM          |
+Row  26 : | 125UIT1017                     | RASIKA SUHAS KALAMKAR          |
+Row  27 : | 125UIT1066                     | KANHAIYA KISHOR MARATHE        |
+Row  28 : | 125UIT1192                     | AYUSHI KIRAN KAWADE            |
+Row  29 : | 125UIT1204                     | SURAJ UDDHAV KHEDKAR           |
+Row  30 : | 125UIT1131                     | SAMRUDDHI SHAILESH KHODADE     |
+Row  31 : | 125UIT1016                     | RIDDHI KRUSHNA KHODE           |
+Row  32 : | 125UIT1001                     | SHUBHAM PRAVIN LAHAMGE         |
+Row  33 : | 125UIT1211                     | ARNAV RAJAN MACHAREKAR         |
+Row  34 : | 125UIT1035                     | ADITYA SUNIL MAHURE            |
+Row  35 : | 125UIT1197                     | BUSHARA MEHMUD MOMIN           |
+Row  36 : | 125UIT1038                     | MAHESHWARI SANDIP OROKAR       |
+Row  37 : | 125UIT1048                     | SURAJ NARESH PADWAL            |
+Row  38 : | 125UIT1111                     | ROHAN RAMESH PANCHAL           |
+Row  39 : | 125UIT1040                     | ROHINI GOUDAPPA PATIL          |
+Row  40 : | 125UIT1076                     | KARAN BABURAO PAWAR            |
+Row  41 : | 125UIT1067                     | SATYAM HIRAMAN PAWAR           |
+Row  42 : | 125UIT1118                     | SHUBHANGI VIJAY PAYGUDE        |
+Row  43 : | 125UIT1139                     | TUSHAR VIVEK POTDAR            |
+Row  44 : | 125UIT1075                     | RUCHIRA RAVI POTRAJE           |
+Row  45 : | 125UIT1187                     | PRASAD VIVEK KULKARNI          |
+Row  46 : | 125UIT1155                     | PAVAN AMAR RAMGUDE             |
+Row  47 : | 125UIT1108                     | DISHA AVINASH RATHOD           |
+Row  48 : | 125UIT1043                     | RAJ NEPAL RATHOD               |
+Row  49 : | 125UIT1182                     | RUTUJA SANJIVKUMAR PANCHAL     |
+Row  50 : | 125UIT1199                     | SADICHHA KALIDAS PAWAR         |
+Row  51 : | 125UIT1132                     | ADITYA PANDHARINATH SATPUTE    |
+Row  52 : | 125UIT1080                     | SHEVARE AJAY VINOD             |
+Row  53 : | 125UIT1171                     | TEJASWINI PRAKASH SHINDE       |
+Row  54 : | 125UIT1180                     | SHRAWANI KRISHNA ROKDE         |
+Row  55 : | 125UIT1004                     | Shrinidhi Madhav Shinde        |
+Row  56 : | 125UIT1120                     | SHUBHAM MACHHINDRA SURVASE     |
+Row  57 : | 125UIT1209                     | SIDDHESH VINODKUMAR DHAVALE    |
+Row  58 : | 125UIT1110                     | NAVYA RAJKUMAR SINGH           |
+Row  59 : | 125UIT1024                     | SOHAM SIDDHESHWAR SOLANKAR     |
+Row  60 : | 125UIT1140                     | SUCHITA RAMCHANDRA SIHORE      |
+Row  61 : | 125UIT1086                     | VALLABH KSHITIJ SURVE          |
+Row  62 : | 125UIT1145                     | GHODKE SWARANJALI OMPRAKASH    |
+Row  63 : | 125UIT1206                     | SWAROOP SATISH PARDESHI        |
+Row  64 : | 125UIT1002                     | PARTH NITIN TANTAK             |
+Row  65 : | 125UIT1022                     | MAYURI MAROTI UGLE             |
+Row  66 : | 125UIT1195                     | UNDALE SOHAM SHASHIKANT        |
+Row  67 : | 125UIT1156                     | VAISHNAVI AVINASH KANDHARE     |
+Row  68 : | 125UIT1149                     | SRUSHTI SANTOSH WAGHMALE       |
+Row  69 : | 125UIT1101                     | ASHWINI SAMBHAJI ANPAT         |
+Row  70 : | 125UIT1104                     | ARYAN RAMESH PATIL             |
+Row  71 : | 125UIT1082                     | Soham Sachin Bahirat           |
+Row  72 : | 125UIT1012                     | PRATIK HANMANT BHADRE          |
+Row  73 : | 125UIT1039                     | BIRADAR SHRADHA SHIVANAND      |
+Row  74 : | 125UIT1089                     | Mayura Santosh Bobade          |
+Row  75 : | 125UIT1053                     | ROHAN GAJANAN DAMARE           |
+Row  76 : | 125UIT1006                     | YASH MANOJ DUBEY               |
+Row  77 : | 125UIT1023                     | FUND SHRUTI SANTOSHRAO         |
+Row  78 : | 125UIT1060                     | GARSE ANUSHKA BHUSHAN          |
+Row  79 : | 125UIT1205                     | GHONE SHRIPRASAD DHANANJAY     |
+Row  80 : | 125UIT1073                     | DHRUV AMAR GODSE               |
+Row  81 : | 125UIT1154                     | GRISHMA KISHOR BHALEKAR        |
+Row  82 : | 125UIT1128                     | PRANAY DATTA HAPSE             |
+Row  83 : | 125UIT1037                     | HARSHITA JIGNESH MEHTA         |
+Row  84 : | 125UIT1142                     | YASH VINODBHAI JADHAV          |
+Row  85 : | 125UIT1124                     | Bhavana Balram Jakka           |
+Row  86 : | 125UIT1030                     | CHANVIR SHIVPUTRA JAMADAR      |
+Row  87 : | 125UIT1159                     | KAKADE SHLOK MILIND            |
+Row  88 : | 125UIT1179                     | KALE SUMIT SUBHASH             |
+Row  89 : | 125UIT1100                     | KAMBLE SHAILAJA SURESH         |
+Row  90 : | 125UIT1163                     | SHUBHAM BASWANT KANDURKE       |
+Row  91 : | 125UIT1183                     | SHYAMSUNDAR KANTHALE           |
+Row  92 : | 125UIT1176                     | ANKITA RAMESHWAR KHURUSANE     |
+Row  93 : | 125UIT1083                     | JAY SAHEBRAO KOHINKAR          |
+Row  94 : | 125UIT1146                     | KULASHREE HITENDRA KULKARNI    |
+Row  95 : | 125UIT1056                     | MEGHRAJ DEEPAK MASKE           |
+Row  96 : | 125UIT1008                     | KHUSHHALI PRAMOD MISHRA        |
+Row  97 : | 125UIT1021                     | PRITI DAYANAND MULE            |
+Row  98 : | 125UIT1203                     | NIKHIL PAPPU KANOUJIYA         |
+Row  99 : | 125UIT1028                     | GAYATRI PRASHANT PATIL         |
+Row 100 : | 125UIT1009                     | VIGHNESH KAILAS PATIL          |
+Row 101 : | 125UIT1068                     | YASHWANT TANAJI PATIL          |
+Row 102 : | 125UIT1123                     | UTKARSH YOGESH PAWAR           |
+Row 103 : | 125UIT1051                     | PRANIT ROSHAN HATZADE          |
+Row 104 : | 125UIT1109                     | PRATHAMESH SUHAS KASHID        |
+Row 105 : | 125UIT1138                     | GAURAV GANESH SALAVE           |
+Row 106 : | 125UIT1052                     | RAKHI SURESH SALUNKE           |
+Row 107 : | 125UIT1119                     | SAMIKSHA RAHUL SATHE           |
+Row 108 : | 125UIT1013                     | SWAYAM PRAKASH SAMRATKAR       |
+Row 109 : | 125UIT1135                     | GAURAV VIJAYANAND SANGORE      |
+Row 110 : | 125UIT1042                     | SAKSHI SUNIL SAWALE            |
+Row 111 : | 125UIT1136                     | MEGHARAJ KISHOR SHAHANE        |
+Row 112 : | 125UIT1105                     | GAURI SANTOSH SHENDAGE         |
+Row 113 : | 125UIT1127                     | VAISHNAVI SHAHAJI SHINDE       |
+Row 114 : | 125UIT1034                     | SHRUTI SANDIP WAVDHANE         |
+Row 115 : | 125UIT1208                     | IRAM UZAIR AHMAD SIDDIQUI      |
+Row 116 : | 125UIT1106                     | MAYUR MADHAV SOMWARE           |
+Row 117 : | 125UIT1186                     | MANASI SANDIP SONAWANE         |
+Row 118 : | 125UIT1077                     | MANSI ROHIDAS SONAWANE         |
+Row 119 : | 125UIT1062                     | SONI ATHARV SANJAY             |
+Row 120 : | 125UIT1078                     | SUDIKSHA SURESH KHAIRE         |
+Row 121 : | 125UIT1049                     | SUSMIT DIPESH SAWANT           |
+Row 122 : | 125UIT1014                     | Samartha Vishal Sutar          |
+Row 123 : | 125UIT1046                     | SNEHA VIVEK SWAMI              |
+Row 124 : | 125UIT1005                     | IQRA IRFAN TAMBOLI             |
+Row 125 : | 125UIT1091                     | BASVARAJ UMAKANT TAMMEWAR      |
+Row 126 : | 125UIT1010                     | UDAY SUNIL TEMBHURNE           |
+Row 127 : | 125UIT1058                     | AADESH RAMESHWAR THANGE        |
+Row 128 : | 125UIT1210                     | VASUNDHARA VARUN TAPISE        |
+Row 129 : | 125UIT1045                     | ATHARV NAGESH VYAVAHARE        |
+Row 130 : | 125UIT1168                     | WANKHEDE SHUBHAM CHANDRAKANT   |
+Row 131 : | 125UIT1152                     | SHREYA SUDAM WAPHARE           |
+Row 132 : | 125UIT1126                     | JANHAVI HEMANT WAVHAL          |
+Row 133 : | 125UIT1200                     | SAKSHI RAHUL ZENDE             |
+Row 134 : | 125UIT1003                     | AARYAN BIPIN SHAHA             |
+Row 135 : | 125UIT1173                     | ANKITA SHAILENDRA MAGAR        |
+Row 136 : | 125UIT1081                     | AMOL MACHHINDRA BAHIR          |
+Row 137 : | 125UIT1191                     | SANSKRUTI BHUSHAN BAIT         |
+Row 138 : | 125UIT1027                     | ATHARVA MANOJ BHARDWAJ         |
+Row 139 : | 125UIT1097                     | ADITYA VENUDAS BHENDEKAR       |
+Row 140 : | 125UIT1007                     | Vaibhav Mahadev Bodke          |
+Row 141 : | 125UIT1047                     | BORAWAKE YASHRAJ PRASHANT      |
+Row 142 : | 125UIT1213                     | VAISHNAV DINKAR BURKUL         |
+Row 143 : | 125UIT1059                     | CHAKOTE TANVI GAJANAN          |
+Row 144 : | 125UIT1166                     | SHRIHARI ARUN CHINCHAKAR       |
+Row 145 : | 125UIT1050                     | DAVRE SAMEEP KANISHK           |
+Row 146 : | 125UIT1099                     | ABHISHEK VIJAY DESHMUKH        |
+Row 147 : | 125UIT1143                     | SHALAKA MADHAORAO DESHMUKH     |
+Row 148 : | 125UIT1098                     | OMKAR NITIN DHAMAL             |
+Row 149 : | 125UIT1193                     | VARSHA NANASAHEB DHERE         |
+Row 150 : | 125UIT1041                     | ABHAY RAMESHWAR GADADE         |
+Row 151 : | 125UIT1133                     | SWAPNEEL RAJENDRA GANJURE      |
+Row 152 : | 125UIT1096                     | GITE SHUBHAM RAJENDRA          |
+Row 153 : | 125UIT1178                     | POONAM RAVSAHEB GITTE          |
+Row 154 : | 125UIT1113                     | HARIOM NANA KATWATE            |
+Row 155 : | 125UIT1157                     | PRARTHANA UTTAMRAO INGLE       |
+Row 156 : | 125UIT1121                     | RUTUJA VILASRAO KAHADE         |
+Row 157 : | 125UIT1044                     | ADITIYA VINOD KALASKAR         |
+Row 158 : | 125UIT1011                     | Ajit Vishnu Karad              |
+Row 159 : | 125UIT1084                     | DNYANESHWAR VITTHAL KHATING    |
+Row 160 : | 125UIT1088                     | KISHOR GANESHRAO PANCHAL       |
+Row 161 : | 125UIT1114                     | SHRAVANI PRAMOD KULKARNI       |
+Row 162 : | 125UIT1175                     | Kunte Ankita Bharat            |
+Row 163 : | 125UIT1214                     | LAXMIKANT JAWAHAR GUPTA        |
+Row 164 : | 125UIT1115                     | MAHESH RAVINDRA PADSE          |
+Row 165 : | 125UIT1185                     | MOHAMMED KAIF IRSHAD KHAN      |
+Row 166 : | 125UIT1102                     | SRUSHTI HANUMANT MOKASHE       |
+Row 167 : | 125UIT1025                     | RAVINDRA CHANDRAKANT MUDE      |
+Row 168 : | 125UIT1112                     | NAKUL SANJAY WAGHMARE          |
+Row 169 : | 125UIT1194                     | YASHRAJ VINAYAK NANAWARE       |
+Row 170 : | 125UIT1063                     | ISHWARI VINOD NIKAM            |
+Row 171 : | 125UIT1054                     | NIRWAL AISHWARYA GOPALRAO      |
+Row 172 : | 125UIT1020                     | ASHWIN GURUPRASAD PANDE        |
+Row 173 : | 125UIT1202                     | BHAGYASHREE GOPAL PATIL        |
+Row 174 : | 125UIT1031                     | GITAL KETAN PATIL              |
+Row 175 : | 125UIT1069                     | PATIL MOHIT SUNIL              |
+Row 176 : | 125UIT1117                     | POKALE SHRIRAM PANDURANG       |
+Row 177 : | 125UIT1151                     | POORVA RAMESH BANKAR           |
+Row 178 : | 125UIT1190                     | PRAVIN SHIVAJI KADU            |
+Row 179 : | 125UIT1070                     | RANA HIRWANE VARDHAN RAKESH    |
+Row 180 : | 125UIT1093                     | NIKHIL SANTOSH RAUT            |
+Row 181 : | 125UIT1055                     | RUSHIKESH AMOL RAUT            |
+Row 182 : | 125UIT1018                     | YASH SANTOSH SALGAR            |
+Row 183 : | 125UIT1141                     | SAMARTH PAWAN JAJU             |
+Row 184 : | 125UIT1172                     | SHAIKH AHAD SHAIKH SAMAD       |
+Row 185 : | 125UIT1032                     | SHREYASH UMESH SHEDGE          |
+Row 186 : | 125UIT1201                     | SHRAVANI SACHIN BUGAD          |
+Row 187 : | 125UIT1057                     | YASH MACHHINDRA SUDRIK         |
+Row 188 : | 125UIT1079                     | SUMEDH MAHADEV KHALIKAR        |
+Row 189 : | 125UIT1161                     | VAISHNAVI BHARAT TALEKAR       |
+Row 190 : | 125UIT1015                     | ANUSHKA GANESH THOMBARE        |
+Row 191 : | 125UIT1170                     | Pavan Vitthal Thote            |
+Row 192 : | 125UIT1129                     | PRAJAKTA LAXMAN TIRUKE         |
+Row 193 : | 125UIT1072                     | UBALE PIYUSH KAILASH           |
+Row 194 : | 125UIT1162                     | UMALE SUBODH SHANTARAM         |
+Row 195 : | 125UIT1087                     | TARWADE VAIBHAV WAMAN          |
+Row 196 : | 125UIT1071                     | SAYALI DNYANOBA VAIDYA         |
+Row 197 : | 125UIT1167                     | VAISHNAVI PRAMOD SUTAR         |
+=======================================================
+File: CONTAINING ZRPN OF ALL (quillbot.com).xlsx
+=======================================================
+Total Rows: 53
+Columns: A, B, C, D, E, F
+Row   1 : | Zeal College of Engineering &  |                                |                                |                                | Subject :Engineering Physics   |                                |
+Row   2 : | F. Y. & S.Y B. Tech Continuous |                                |                                |                                |                                |                                |
+Row   3 : | Centre: ZCOER Narhe Pune       |                                | Year 2025-26 & Pattern 2025 :  | Room No.                       | Block No. 52                   |                                |
+Row   4 : | Timing -11:00 AM To 12:00
+     |                                | Name & Signature of Moderator  | / 30 PM                        | B4-08                          |                                |
+Row   5 : | 25ITBS204                      |                                | Subject Code:                  | Attendance & Marksheet         | 46128                          |                                |
+Row   6 : | Date :                         | Sr. No                         | ZPRN                           | Name of The Student            | Signature                      | Suppliments                    |
+Row   7 : | 1                              | Branch: IT                     | 125UIT1103                     |                                |                                |                                |
+Row   8 : | 2                              | ADE ISHWARI SHAMRAO            | 125UIT1095                     |                                |                                |                                |
+Row   9 : | 3                              | ROHIT ASHOK BADAK              | 125UIT1036                     |                                |                                |                                |
+Row  10 : | 4                              | PRERANA SANDIP BANKAR          | 125UIT1029                     |                                |                                |                                |
+Row  11 : | 5                              | GAYATRI SANTOSH BARGAJE        | 125UIT1090                     |                                |                                |                                |
+Row  12 : | 6                              | SOHAM ABHAY BHAVSAR            | 125UIT1148                     |                                |                                |                                |
+Row  13 : | 7                              | AYUSH RAMBHAU BORKAR           | 125UIT1061                     |                                |                                |                                |
+Row  14 : | 8                              | CHAITANYA JYOTIRAM BHOSALE     | 125UIT1137                     |                                |                                |                                |
+Row  15 : | 9                              | PRANAV SHARAD CHOLE            | 125UIT1074                     |                                |                                |                                |
+Row  16 : | 10                             | PRUTHVIRAJ AMAR DALVE          | 125UIT1147                     |                                |                                |                                |
+Row  17 : | 11                             | SUMIT KISHOR DAVHALE           | 125UIT1189                     |                                |                                |                                |
+Row  18 : | 12                             | MADHUR SANJAY DHADVE           | 125UIT1092                     |                                |                                |                                |
+Row  19 : | 13                             | DIVY ANIL KOKATE               | 125UIT1165                     |                                |                                |                                |
+Row  20 : | 14                             | DIXIT SHIVAMSINGH NARENDRASING | 125UIT1122                     |                                |                                |                                |
+Row  21 : | 15                             | PRANAV PRAVIN DOLASE           | 125UIT1107                     |                                |                                |                                |
+Row  22 : | 16                             | GADAKH RISHI ASHOK             | 125UIT1065                     |                                |                                |                                |
+Row  23 : | 17                             | SUJIT ARUN GARJE               | 125UIT1125                     |                                |                                |                                |
+Row  24 : | 18                             | GAURAV RAJENDRA NANVARE        | 125UIT1212                     |                                |                                |                                |
+Row  25 : | 19                             | SWARA SANTOSH GHARAT           | 125UIT1019                     |                                |                                |                                |
+Row  26 : | 20                             | ARJUN GAJANAN GHULE            | 125UIT1130                     |                                |                                |                                |
+Row  27 : | 21                             | SWARAJ VISHNU GODAMBE          | 125UIT1033                     |                                |                                |                                |
+Row  28 : | 22                             | YUVRAJSINHA RAVINDRA GOUR      | 125UIT1116                     |                                |                                |                                |
+Row  29 : | 23                             | PRUTHVIRAJ PRABHU INGLE        | 125UIT1085                     |                                |                                |                                |
+Row  30 : | 24                             | PRANAV PREMNATH KADAM          | 125UIT1017                     |                                |                                |                                |
+Row  31 : | 25                             | RASIKA SUHAS KALAMKAR          | 125UIT1066                     |                                |                                |                                |
+Row  32 : | 26                             | KANHAIYA KISHOR MARATHE        | 125UIT1192                     |                                |                                |                                |
+Row  33 : | 27                             | AYUSHI KIRAN KAWADE            | 125UIT1204                     |                                |                                |                                |
+Row  34 : | 28                             | SURAJ UDDHAV KHEDKAR           | 125UIT1131                     |                                |                                |                                |
+Row  35 : | 29                             | SAMRUDDHI SHAILESH KHODADE     | 125UIT1016                     |                                |                                |                                |
+Row  36 : | 30                             | RIDDHI KRUSHNA KHODE           | 125UIT1001                     |                                |                                |                                |
+Row  37 : | 31                             | SHUBHAM PRAVIN LAHAMGE         | 125UIT1211                     |                                |                                |                                |
+Row  38 : | 32                             | ARNAV RAJAN MACHAREKAR         | 125UIT1035                     |                                |                                |                                |
+Row  39 : | 33                             |                                |                                |                                |                                |                                |
+Row  40 : | 34                             |                                |                                |                                |                                |                                |
+Row  41 : | 35                             |                                |                                |                                |                                |                                |
+Row  42 : | 36                             |                                |                                |                                |                                |                                |
+Row  43 : | 37                             |                                |                                |                                |                                |                                |
+Row  44 : | 38                             |                                |                                |                                |                                |                                |
+Row  45 : | 39                             |                                |                                |                                |                                |                                |
+Row  46 : | 40                             |                                |                                |                                |                                |                                |
+Row  47 : | Marks                          |                                |                                |                                |                                |                                |
+Row  48 : | Total Block Strength           |                                |                                |                                |                                |                                |
+Row  49 : | Present Students               |                                |                                | Absent Students                |                                |                                |
+Row  50 : | Name & Signature of Examiner   |                                |                                |                                |                                |                                |
+Row  51 : | Name of Jr.Supervisor          |                                |                                |                                |                                |                                |
+Row  52 : | Signature                      |                                |                                |                                |                                |                                |
+Row  53 : | Name of Jr.Supervisor          |                                |                                | Name of Sr.Supervisor          |                                |                                |

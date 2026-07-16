@@ -1,0 +1,108 @@
+<!--
+  CIE-2 Activity Tracking, Evaluation and Performance Management System
+  File: frontend/auth/login.html
+  Purpose: Production-ready ERP Login UI with role selector tabs, dynamic validation, and security features.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login | CIE-2 Activity Tracking & Evaluation System</title>
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <div class="login-container">
+    <!-- Login Card -->
+    <div class="login-card">
+      <div class="card-header">
+        <!-- Logo SVG -->
+        <div class="logo-wrapper">
+          <svg class="college-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="16" fill="url(#grad)" />
+            <path d="M32 14L16 23V41L32 50L48 41V23L32 14Z" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M32 20V44" stroke="white" stroke-width="2"/>
+            <path d="M22 26.5H42" stroke="white" stroke-width="2"/>
+            <path d="M22 37.5H42" stroke="white" stroke-width="2"/>
+            <defs>
+              <linearGradient id="grad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#1e40af" />
+                <stop offset="1" stop-color="#3b82f6" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <h1 class="project-title">CIE-2 Activity Tracking, Evaluation and Performance Management System</h1>
+        <p class="subtitle">Official Institutional Portal</p>
+      </div>
+
+      <!-- Role Selector Tabs -->
+      <div class="role-selector" role="tablist">
+        <button class="role-tab active" data-role="student" role="tab" aria-selected="true" id="tab-student">Student</button>
+        <button class="role-tab" data-role="teacher" role="tab" aria-selected="false" id="tab-teacher">Teacher</button>
+        <button class="role-tab" data-role="admin" role="tab" aria-selected="false" id="tab-admin">Admin</button>
+      </div>
+
+      <!-- Authentication Form -->
+      <form id="login-form" class="login-form" novalidate>
+        <!-- Dynamic Username Field -->
+        <div class="form-group">
+          <label for="username-input" id="username-label">PRN Number</label>
+          <div class="input-wrapper">
+            <input type="text" id="username-input" class="form-control" placeholder="Enter your PRN" required autocomplete="username">
+            <span class="error-msg" id="username-error" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+          <label for="password-input">Password</label>
+          <div class="input-wrapper">
+            <input type="password" id="password-input" class="form-control" placeholder="Enter your password" required autocomplete="current-password">
+            <button type="button" class="btn-toggle-password" id="toggle-password" aria-label="Toggle Password Visibility">
+              <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </button>
+            <span class="error-msg" id="password-error" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <!-- Options Container -->
+        <div class="form-options">
+          <label class="checkbox-container">
+            <input type="checkbox" id="remember-me">
+            <span class="checkmark"></span>
+            Remember Me
+          </label>
+          <a href="#" class="forgot-link" id="forgot-password-link">Forgot Password?</a>
+        </div>
+
+        <!-- Status Message Area -->
+        <div id="status-message" class="status-alert hidden" role="alert"></div>
+
+        <!-- Action Button -->
+        <button type="submit" class="btn btn-login" id="btn-login-submit">
+          <span class="btn-text">Sign In</span>
+          <span class="spinner hidden"></span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Portal Footer -->
+    <footer class="login-footer">
+      <p>&copy; 2026 CIE-2 Performance Management Portal. All rights reserved.</p>
+      <p class="compliance-tag">Secured with SSL & JWT Encryption</p>
+    </footer>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

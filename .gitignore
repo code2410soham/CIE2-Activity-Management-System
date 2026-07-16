@@ -1,0 +1,30 @@
+# Environment variables
+.env
+backend/.env
+
+# Node modules
+node_modules/
+
+# IDE & OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+.DS_Store
+
+# Diagnostic/temp files
+backend/api/trace_*.php
+backend/api/test_*.php
+backend/api/check_*.php
+backend/api/inspect_*.php
+backend/api/query_*.php
+backend/api/send_*.php
+backend/api/find_*.php
+backend/api/run_*.php
+backend/api/print_*.php
+backend/api/*_out.txt
+backend/api/*_create.txt
+backend/api/db_students.txt
+trace_out.txt
+curl_out.txt

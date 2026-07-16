@@ -1,0 +1,278 @@
+Software Requirements Specification (SRS)
+Project Title:  CIE-2 Activity Tracking, Evaluation and Performance Management System
+
+1. Introduction & Scope
+1.1 Introduction
+The CIE-2 Activity Tracking, Evaluation and Performance Management System is a web-based application designed to automate the planning, execution, submission, evaluation, and performance analysis of Continuous Internal Evaluation (CIE-2) activities conducted for First Year Engineering students.
+Currently, CIE-2 activities such as quizzes, poster presentations, PPT presentations, assignments, simulations, model demonstrations, and term work are managed manually using paper records, emails, and spreadsheets. This process is time-consuming, prone to errors, and lacks centralized tracking.
+The proposed system will provide a centralized platform for both students and teachers. Teachers will be able to create and manage activities, evaluate submissions, assign marks, and monitor class performance. Students will be able to access assigned activities, submit required files, attempt quizzes, and track their academic progress throughout the semester.
+The primary objective is to improve transparency, efficiency, accuracy, and accessibility while minimizing manual effort in conducting CIE-2 evaluations.
+
+1.2 Scope
+The scope of the project includes the complete digital management of CIE-2 activities for all First Year Engineering subjects.
+Student Portal
+The student portal shall provide facilities to:
+Secure authentication using PRN and password. 
+View all assigned CIE-2 activities. 
+Access activity instructions and deadlines. 
+Attempt online quizzes. 
+Upload PDF submissions for posters, assignments, five-question solutions, reports, simulations, and term work. 
+Check submission status. 
+View marks, feedback, and performance analysis. 
+Receive notifications regarding new activities and deadlines. 
+
+Teacher Portal
+The teacher portal shall enable faculty members to:
+Secure authentication using faculty credentials. 
+Create, edit, and delete CIE-2 activities. 
+Define activity type, subject, unit, maximum marks, and submission deadlines. 
+Upload supporting documents and instructions. 
+Download student submissions. 
+Evaluate activities and assign marks. 
+Provide remarks and feedback. 
+Generate reports and performance analytics. 
+
+Subjects Covered
+The system shall support the following FY Engineering subjects:
+Fundamentals of Computer Networking (FCSN) 
+C++ 
+Digital Systems and Digital Architecture (DSDA) 
+Engineering Mathematics-II (EM-II) 
+Engineering Physics 
+IT Proficiencies (ITP) 
+Professional Development (PD) 
+Liberal Learning (Term Work) 
+
+Activity Types Supported
+The system shall support multiple evaluation methods including:
+Online Quiz 
+Poster Presentation 
+Five Question Assignment 
+PowerPoint Presentation (PPT) 
+Simulation Report 
+Model Documentation 
+Viva Submission 
+PDF Assignment 
+Term Work Submission 
+
+2. Functional Requirements
+1 User Authentication
+The system shall:
+Authenticate students using PRN and password. 
+Authenticate teachers using Employee ID and password. 
+Provide password reset functionality. 
+Maintain secure user sessions. 
+
+2 Student Dashboard
+The system shall display:
+Student profile information. 
+Subject-wise activities. 
+Pending submissions. 
+Completed submissions. 
+Notifications. 
+Overall marks summary. 
+
+3 Teacher Dashboard
+The dashboard shall display:
+Number of activities created. 
+Pending evaluations. 
+Submission statistics. 
+Student performance overview. 
+Recent notifications. 
+
+4 Activity Management
+Teachers shall be able to:
+Create activities. 
+Edit activity details. 
+Delete activities. 
+Select subject and unit. 
+Assign activity type. 
+Set maximum marks. 
+Define submission deadlines. 
+Upload activity instructions. 
+
+5 Activity Submission
+Students shall be able to:
+View activity details. 
+Upload PDF files. 
+Replace submissions before the deadline. 
+Receive confirmation after successful submission. 
+
+6 Quiz Module
+The system shall allow teachers to:
+Create objective quizzes. 
+Configure quiz duration. 
+Assign marks. 
+Students shall:
+Attempt quizzes online. 
+Receive automatic evaluation for objective questions. 
+
+7 Evaluation Module
+Teachers shall:
+View all submissions. 
+Download uploaded documents. 
+Assign marks. 
+Provide remarks. 
+Publish results. 
+
+8 Performance Analytics
+The system shall calculate:
+Subject-wise marks. 
+Total obtained marks. 
+Percentage. 
+Activity completion percentage. 
+Student ranking (optional). 
+Overall performance analysis. 
+
+9 Report Generation
+The system shall generate:
+Student Performance Report. 
+Subject-wise Report. 
+Activity-wise Report. 
+Marks Summary Report. 
+Downloadable PDF reports. 
+
+10 Notification Module
+The system shall notify users regarding:
+New activities. 
+Upcoming deadlines. 
+Successful submissions. 
+Published results. 
+Teacher feedback. 
+
+11 File Management
+The system shall:
+Accept PDF files only. 
+Store uploaded files securely. 
+Prevent duplicate submissions after deadlines. 
+Maintain version history if resubmission is allowed. 
+
+3. Non-Functional Requirements
+Performance
+Average page response time shall not exceed 3 seconds. 
+The system shall support at least 500 concurrent users. 
+File upload and download operations shall complete within acceptable response time. 
+
+Security
+Passwords shall be encrypted. 
+Role-based access control shall be implemented. 
+Student records shall only be accessible to authorized users. 
+All communication shall occur over secure protocols (HTTPS in deployment). 
+
+Reliability
+System availability shall be at least 99% during working hours. 
+Automatic database backup shall be scheduled. 
+Data integrity shall be maintained throughout transactions. 
+
+Scalability
+The system shall support future expansion for:
+Additional departments. 
+Multiple academic years. 
+Increased student capacity. 
+New activity types. 
+
+Maintainability
+The software shall:
+Follow modular architecture. 
+Be easy to update and maintain. 
+Allow addition of new modules without affecting existing functionality. 
+
+Usability
+User interface shall be intuitive and responsive. 
+Navigation shall require minimal training. 
+Error messages shall be clear and informative. 
+
+4. System Constraints & Dependencies
+System Constraints
+Technical Constraints
+Web-based implementation. 
+Internet connectivity is mandatory. 
+Only authenticated users may access the system. 
+Maximum upload size shall be configurable (default: 50 MB). 
+PDF shall be the mandatory submission format. 
+Activity deadlines shall be enforced automatically. 
+
+Operational Constraints
+Each activity belongs to one subject and one unit. 
+Students may submit only before the deadline. 
+Teachers can evaluate only assigned subjects. 
+Marks can be modified only before publication. 
+One final submission per activity unless resubmission is enabled. 
+
+Business Constraints
+The application shall follow the college's CIE-2 evaluation policy. 
+Marks distribution shall comply with departmental guidelines. 
+Academic records shall be retained for future reference. 
+
+System Dependencies
+Software Dependencies
+HTML5 
+CSS3 
+PHP (Laravel or Core PHP) 
+MySQL Database 
+XAMPP/Apache Server 
+
+5. Acceptance Criteria
+The project shall be considered successfully completed when all of the following conditions are satisfied.
+Authentication
+Students and teachers can log in using valid credentials. 
+Unauthorized users cannot access the system. 
+Session management works correctly. 
+Activity Management
+Teachers can successfully create, update, and delete activities. 
+Activities appear correctly in the student dashboard. 
+Deadlines are enforced automatically. 
+File Submission
+Students can upload PDF files without errors. 
+Uploaded files are stored securely. 
+Submission timestamps are recorded correctly. 
+Duplicate submissions after the deadline are prevented. 
+Quiz Module
+Teachers can create quizzes successfully. 
+Students can complete quizzes online. 
+Objective quizzes are evaluated automatically. 
+Marks are stored accurately. 
+Evaluation
+Teachers can download student submissions. 
+Marks and remarks can be entered successfully. 
+Results are published correctly. 
+Performance Analysis
+Subject-wise marks are calculated accurately. 
+Overall percentage is generated correctly. 
+Student dashboards display updated results immediately after publication. 
+Report Generation
+Reports are generated without errors. 
+PDF reports can be downloaded successfully. 
+Reports contain accurate academic information. 
+Security
+Unauthorized access is prevented. 
+Passwords remain encrypted. 
+Student data privacy is maintained. 
+Overall System Validation
+The system shall be accepted when:
+All functional requirements are implemented successfully. 
+All critical defects are resolved. 
+Performance requirements are achieved. 
+The application is stable during testing. 
+User Acceptance Testing (UAT) is approved by faculty members. 
+The software is deployed and demonstrated successfully. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Flowchart
+ 
+
+
+Conclusion
+The CIE-2 Activity Tracking, Evaluation and Performance Management System aims to provide a secure, scalable, and efficient platform for managing CIE-2 activities within the institution. By automating activity creation, submission, evaluation, and performance analysis, the system will reduce administrative workload, improve transparency in assessment, and provide students with timely access to their academic progress. This SRS defines the functional and non-functional requirements necessary to guide the successful development, testing, and deployment of the application while ensuring alignment with the college's academic evaluation process.

@@ -1,0 +1,39 @@
+==================================================
+ Starting Automated API Integration & Auth Tests 
+==================================================
+Test 1: Student login with default credentials...
+Status Code: 200
+Response Body: {
+  success: true,
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InVzci1zdHVkLTEyNVVJVDExMDMiLCJ1c2VybmFtZSI6IjEyNVVJVDExMDMiLCJlbWFpbCI6IjEyNXVpdDExMDNAY29sbGVnZS5lZHUiLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc4NDIzMjg2MiwiZXhwIjoxNzg0MzE5MjYyfQ.jw-4Givsi-auQvjPhBDF13YVbHVZS1j445y-bYahlho',
+  mustChangePassword: true
+}
+Test 1 PASSED: Default credentials correctly returned mustChangePassword: true.
+
+Test 2: Student login with incorrect credentials...
+Status Code: 401
+Response Body: { success: false, error: 'Invalid credentials' }
+Test 2 PASSED: Invalid password rejected with 401.
+
+Test 3: Changing password using endpoint...
+Status Code: 200
+Response Body: { success: true, message: 'Password updated successfully.' }
+Test 3 PASSED: Password changed successfully.
+
+Test 4: Logging in with the new password...
+Status Code: 200
+Response Body: {
+  success: true,
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InVzci1zdHVkLTEyNVVJVDExMDMiLCJ1c2VybmFtZSI6IjEyNVVJVDExMDMiLCJlbWFpbCI6IjEyNXVpdDExMDNAY29sbGVnZS5lZHUiLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc4NDIzMjg2MywiZXhwIjoxNzg0MzE5MjYzfQ.pbC7bNYpg_qAicqSkq19oERX-cyrge5EyU-MtRFWgm8',
+  mustChangePassword: false
+}
+Test 4 PASSED: Able to log in with new password; mustChangePassword is false.
+
+Restoring user password back to default ZRPN...
+Restore Status Code: 200
+Restore Body: { success: true, message: 'Password updated successfully.' }
+User password successfully restored.
+
+==================================================
+ ALL AUTOMATED API TESTS HAVE PASSED SUCCESSFULLY 
+==================================================
