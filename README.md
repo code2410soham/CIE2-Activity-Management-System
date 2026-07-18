@@ -73,33 +73,22 @@ CIE2-Activity-Management-System
 
 ## ⚙️ Installation & Setup
 
-Follow these steps to launch the repository locally:
+> **👉 See the complete step-by-step guide: [SETUP.md](./SETUP.md)**
 
-### 1. Prerequisites
-- [Node.js](https://nodejs.org/) (v16+)
-- PostgreSQL (v14+) or MySQL
+Quick summary:
 
-### 2. Repository Setup
-Clone the repository:
-```bash
-git clone https://github.com/your-org/CIE2-Activity-Management-System.git
-cd CIE2-Activity-Management-System
-```
-
-### 3. Install Dependencies (Backend)
-Navigate to backend and initialize dependencies:
 ```bash
 cd backend
-npm init -y
-npm install express pg jsonwebtoken dotenv cors
+cp .env.example .env      # Fill in your MySQL credentials
+npm install
+npm run check             # Verify database connection
+npm start                 # Start server → http://localhost:5000
 ```
 
-### 4. Database Initialization
-Run the DDL scripts against your local SQL server:
+Import the database (one-time, after creating `cie2_db`):
 ```bash
-# Example using PostgreSQL client
-psql -U your_postgres_user -d your_database_name -f database/schema.sql
-psql -U your_postgres_user -d your_database_name -f database/seed.sql
+mysql -u root -p cie2_db < database/schema.sql
+mysql -u root -p cie2_db < database/seed.sql
 ```
 
 ---
