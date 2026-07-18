@@ -82,18 +82,19 @@ mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS cie2_db;"
 
 ---
 
-## Step 5 — Import the Database Schema and Seed Data
+## Step 5 — Import the Database Schema, Base Seed, and Students Seed
 
-From the **project root folder**, run these two commands in order:
+From the **project root folder**, run these three commands in order to create all tables, upload course metadata, and load all 195 student database records with valid bcrypt passwords:
 
 ```bash
 mysql -u root -p cie2_db < database/schema.sql
 mysql -u root -p cie2_db < database/seed.sql
+mysql -u root -p cie2_db < database/students_seed.sql
 ```
 
 > If your MySQL has a password, enter it when prompted. If it has no password, just press Enter.
 
-After importing, verify by checking phpMyAdmin — you should see `cie2_db` with ~39 tables.
+After importing, verify by checking phpMyAdmin — you should see `cie2_db` with all tables populated.
 
 ---
 
@@ -211,7 +212,11 @@ CIE2-Activity-Management-System/
 cd backend
 cp .env.example .env        # Edit with your MySQL credentials
 npm install
-# Start XAMPP MySQL, create cie2_db, import schema.sql and seed.sql
+# Start XAMPP MySQL, create cie2_db
+# Import standard schemas and credentials:
+mysql -u root -p cie2_db < ../database/schema.sql
+mysql -u root -p cie2_db < ../database/seed.sql
+mysql -u root -p cie2_db < ../database/students_seed.sql
 node checkenv.js            # Verify setup
 npm start                   # Start the server
 # Open http://localhost:5000

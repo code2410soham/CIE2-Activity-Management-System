@@ -6,7 +6,9 @@
     "scripts": {
         "start": "node server.js",
         "dev": "nodemon server.js",
-        "check": "node checkenv.js"
+        "check": "node checkenv.js",
+        "seed": "node import_students.js",
+        "seed:generate": "node generate_students_sql.js"
     },
     "keywords": [],
     "author": "",
