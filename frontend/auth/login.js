@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Perform AJAX Post call
-            const response = await fetch('../../backend/api/login.php', {
+            const response = await fetch('/api/v1/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -159,11 +159,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Redirect according to user role
             setTimeout(() => {
                 if (currentRole === 'student') {
-                    window.location.href = '../student/dashboard.php';
+                    window.location.href = '../student/dashboard.html';
                 } else if (currentRole === 'teacher') {
-                    window.location.href = '../teacher/dashboard.php';
+                    window.location.href = '../teacher/dashboard.html';
                 } else if (currentRole === 'admin') {
-                    window.location.href = '../admin/dashboard.php';
+                    window.location.href = '../admin/dashboard.html';
                 }
             }, 1000);
 

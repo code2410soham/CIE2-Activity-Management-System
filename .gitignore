@@ -28,3 +28,8 @@ backend/api/*_create.txt
 backend/api/db_students.txt
 trace_out.txt
 curl_out.txt
+
+# Backend root temp/test outputs
+backend/verification_result.txt
+backend/new_verification_result.txt
+backend/dashboard_api_result.json

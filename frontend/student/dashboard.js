@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Verify Authorization Token
     const token = localStorage.getItem('authToken');
     if (!token) {
-        window.location.href = '../auth/login.php';
+        window.location.href = '../auth/login.html';
         return;
     }
 
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.removeItem('authToken');
         // Delete cookie by setting expiry to past
         document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        window.location.href = '../auth/login.php';
+        window.location.href = '../auth/login.html';
     });
 
     // Setup Notification bell toggle
@@ -88,7 +88,7 @@ async function fetchDashboardData(token) {
     const sections = document.getElementById('dashboard-sections');
 
     try {
-        const response = await fetch('../../backend/api/dashboard-data.php', {
+        const response = await fetch('/api/v1/student/dashboard', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -118,7 +118,7 @@ async function fetchDashboardData(token) {
         console.error(err);
         // Show session redirect
         localStorage.removeItem('authToken');
-        window.location.href = '../auth/login.php';
+        window.location.href = '../auth/login.html';
     }
 }
 

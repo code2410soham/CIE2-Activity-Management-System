@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('../../backend/api/change-password.php', {
+            const response = await fetch('/api/v1/auth/change-password', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Clear the temporary mustChangePassword criteria and continue to dashboard
             setTimeout(() => {
-                window.location.href = '../student/dashboard.php';
+                window.location.href = '../student/dashboard.html';
             }, 1500);
 
         } catch (err) {

@@ -11,6 +11,8 @@ const path = require('path');
 require('dotenv').config();
 
 const authRoutes = require('./auth/routes');
+const studentRoutes = require('./student/routes');
+const authMiddleware = require('./middleware/auth');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -31,6 +33,7 @@ app.get('/', (req, res) => {
 
 // 3. Mount Backend API Endpoints
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/student', authMiddleware, studentRoutes);
 
 // 4. Global Error Handler
 app.use((err, req, res, next) => {
