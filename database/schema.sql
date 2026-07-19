@@ -92,6 +92,7 @@ DROP TABLE IF EXISTS teacher_profiles;
 CREATE TABLE teacher_profiles (
     id VARCHAR(50) PRIMARY KEY,
     user_id VARCHAR(50) NOT NULL UNIQUE,
+    name VARCHAR(150) NULL,
     employee_id VARCHAR(50) NOT NULL,
     department_id VARCHAR(50) NOT NULL,
     designation VARCHAR(100) DEFAULT NULL,
@@ -109,6 +110,7 @@ DROP TABLE IF EXISTS student_profiles;
 CREATE TABLE student_profiles (
     id VARCHAR(50) PRIMARY KEY,
     user_id VARCHAR(50) NOT NULL UNIQUE,
+    name VARCHAR(150) NULL,
     usn VARCHAR(50) NOT NULL, -- University Seat Number (Unique Roll Number)
     department_id VARCHAR(50) NOT NULL,
     current_semester_id VARCHAR(50) NOT NULL,

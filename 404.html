@@ -183,21 +183,21 @@
             // 3. Configure button destination dynamically
             const homeBtn = document.getElementById('home-button');
 
-            let redirectUrl = 'frontend/auth/login.html';
+            let redirectUrl = 'frontend/auth/login.php';
             if (userRole === 'student') {
-                redirectUrl = 'frontend/student/dashboard.html';
+                redirectUrl = 'frontend/student/dashboard.php';
                 homeBtn.innerHTML = `
           <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
           Go to Student Dashboard
         `;
             } else if (userRole === 'teacher') {
-                redirectUrl = 'frontend/teacher/dashboard.html';
+                redirectUrl = 'frontend/teacher/dashboard.php';
                 homeBtn.innerHTML = `
           <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
           Go to Instructor Dashboard
         `;
             } else if (userRole === 'admin') {
-                redirectUrl = 'frontend/admin/dashboard.html';
+                redirectUrl = 'frontend/admin/dashboard.php';
                 homeBtn.innerHTML = `
           <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
           Go to Admin Portal

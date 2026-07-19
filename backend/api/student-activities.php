@@ -1,9 +1,7 @@
 <?php
 /**
- * CIE-2 Activity Tracking, Evaluation and Performance Management System
+ * CIE-2 Activity Tracking
  * File: backend/api/student-activities.php
- * Path: /api/v1/student/student-activities
- * Purpose: Provides a dedicated list of assignments and quizzes for the student activities tab.
  */
 
 require_once 'config.php';
@@ -32,11 +30,11 @@ if (!$token) {
 $userData = JWT::verify($token);
 if (!$userData || !isset($userData['id']) || $userData['role'] !== 'student') {
     http_response_code(401);
-    echo json_encode(["success" => false, "error" => "Invalid or expired token for Student role."]);
+    echo json_encode(["success" => false, "error" => "Invalid or expired token."]);
     exit();
 }
 
-$student_id = $userData['id'];
+$user_id = $userData['id'];
 
 try {
     $stmt = $conn->prepare("
@@ -44,23 +42,25 @@ try {
             a.id as activity_id,
             a.title,
             a.description as instructions,
-            t.type_name as category,
-            s.subject_name as subject,
+            t.name as category,
+            t.code as type_code,
+            s.name as subject,
             a.max_marks,
             a.deadline,
             COALESCE(sub.submission_status, 'pending') as submission_status,
             sub.submitted_at
         FROM activities a
-        JOIN activity_types t ON a.type_id = t.id
+        JOIN activity_types t ON a.activity_type_id = t.id
         JOIN subject_allocations sa ON a.subject_allocation_id = sa.id
         JOIN student_course_enrollments sce ON sa.id = sce.subject_allocation_id
         JOIN subjects s ON sa.subject_id = s.id
-        LEFT JOIN submissions sub ON a.id = sub.activity_id AND sub.student_id = ?
-        WHERE sce.student_id = ?
+        JOIN student_profiles sp ON sp.id = sce.student_id  
+        LEFT JOIN submissions sub ON a.id = sub.activity_id AND sub.student_id = sp.id
+        WHERE sp.user_id = ?
         ORDER BY a.deadline ASC
     ");
 
-    $stmt->execute([$student_id, $student_id]);
+    $stmt->execute([$user_id]);
     $activities = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     echo json_encode(["success" => true, "activities" => $activities]);

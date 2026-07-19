@@ -3,7 +3,7 @@
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Evaluate Submissions | CIE-2 Portal</title>
+    <title>My Profile | CIE-2 Portal</title>
     <link rel='stylesheet' href='../shared/styles.css?v=3.0'>
 </head>
 <body data-theme='dark'>
@@ -11,16 +11,16 @@
 <div class='app-layout'>
     <aside class='sidebar' id='sidebar'>
         <div class='sidebar-brand'>
-            <span class='brand-title'>CIE-2 Teachers</span>
+            <span class='brand-title'>CIE-2 Portal</span>
         </div>
         <nav class='sidebar-nav'>
             <a href='dashboard.php' class='nav-item'>Dashboard</a>
-            <a href='activity-management.php' class='nav-item'>Activities</a>
-            <a href='quizzes.php' class='nav-item'>Quiz Management</a>
+            <a href='activities.php' class='nav-item'>Activities</a>
+            <a href='quizzes.php' class='nav-item'>Quizzes</a>
             <a href='submissions.php' class='nav-item'>Submissions</a>
-            <a href='evaluation.php' class='nav-item active'>Evaluation</a>
-            <a href='reports.php' class='nav-item '>Reports</a>
-            <a href='profile.php' class='nav-item'>Profile</a>
+            <a href='performance.php' class='nav-item '>Performance</a>
+            <a href='notifications.php' class='nav-item '>Notifications</a>
+            <a href='profile.php' class='nav-item active'>Profile</a>
         </nav>
         <div style='padding: 24px;'>
             <button id='logout-btn' class='btn btn-outline' style='width: 100%;'>Logout</button>
@@ -30,18 +30,19 @@
     <main class='main-wrapper'>
         <header class='topbar'>
             <div class='topbar-left'>
-                <h2 class='outfit-font'>Evaluate Submissions</h2>
+                <h2 class='outfit-font'>My Profile</h2>
             </div>
         </header>
+
         <div class='content-scroll'>
-            <div class="glass-panel"><table class="modern-table"><thead><tr><th>Student</th><th>Activity</th><th>Status</th><th>Score</th><th>Action</th></tr></thead><tbody id="eval-body"></tbody></table></div>
+            <div class="glass-panel" style="max-width:600px;"><div id="prof-details" style="display:grid; gap:16px; font-size:1.1rem;">Loading...</div><button class="btn btn-outline" style="margin-top:20px;" onclick="window.location.href=`../auth/change-password.php`">Change Password</button></div>
         </div>
     </main>
 </div>
 <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+<script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
 <script src='../shared/config.js'></script>
 <script src='../shared/api-service.js'></script>
-<script src='evaluation.js'></script>
-<script>document.getElementById('logout-btn').addEventListener('click', () => apiService.logout());</script>
+<script src='profile.js'></script>
 </body>
 </html>

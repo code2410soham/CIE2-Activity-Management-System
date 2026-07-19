@@ -1,15 +1,24 @@
 /**
- * CIE-2 Activity Tracking, Evaluation and Performance Management System
+ * CIE-2 Activity Tracking
  * File: frontend/student/activities.js
- * Purpose: Handles fetching pending activities and processing PDF uploads gracefully via SweetAlert2.
  */
+
+let allActivities = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchActivities();
 
-    document.getElementById('logout-button').addEventListener('click', (e) => {
-        e.preventDefault();
-        apiService.logout();
+    const filters = document.querySelectorAll('#filters-container .btn');
+    filters.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            filters.forEach(b => {
+                b.classList.remove('btn-primary');
+                b.classList.add('btn-outline');
+            });
+            e.target.classList.remove('btn-outline');
+            e.target.classList.add('btn-primary');
+            renderCards(e.target.dataset.filter);
+        });
     });
 });
 
@@ -17,127 +26,129 @@ async function fetchActivities() {
     try {
         const result = await apiService.get('/api/v1/student/student-activities');
         if (!result.success) {
-            Swal.fire('Error', result.error || 'Failed to load activities.', 'error');
+            Swal.fire('Error', result.error || 'Failed to load activities', 'error');
             return;
         }
 
-        renderActivitiesList(result.activities);
+        allActivities = result.activities || [];
+        renderCards('all');
+
     } catch (err) {
-        console.error('Fetch error:', err);
+        console.error(err);
+        document.getElementById('activities-deck').innerHTML = `<p style="grid-column:1/-1;">Error loading data.</p>`;
     }
 }
 
-function renderActivitiesList(activities) {
-    const container = document.getElementById('activities-container');
-    if (!container) return;
+function renderCards(filter) {
+    const deck = document.getElementById('activities-deck');
+    let filtered = allActivities;
 
-    if (!activities || activities.length === 0) {
-        container.innerHTML = `<div style="padding:40px; text-align:center; color: var(--text-secondary);">You have no pending or past activities at this moment. You're all caught up!</div>`;
+    if (filter !== 'all') {
+        filtered = allActivities.filter(a => a.submission_status.toLowerCase() === filter);
+    }
+
+    if (filtered.length === 0) {
+        deck.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding: 40px; color: var(--text-muted); font-size:1.1rem;">No activities found matching criteria.</div>`;
         return;
     }
 
-    container.innerHTML = '';
-    const now = new Date();
+    deck.innerHTML = filtered.map(a => {
+        let badgeType = 'badge-info';
+        if (a.submission_status === 'pending') badgeType = 'badge-pending';
+        if (a.submission_status === 'submitted') badgeType = 'badge-success';
+        if (a.submission_status === 'overdue') badgeType = 'badge-danger';
 
-    activities.forEach(act => {
-        const deadline = new Date(act.deadline);
-        let timeStatusHTML = '';
-        let actionHTML = '';
-
-        if (act.submission_status === 'submitted') {
-            timeStatusHTML = `<span class="deadline-text text-success">Submitted on ${new Date(act.submitted_at).toLocaleString()}</span>`;
-            actionHTML = `
-                <button class="action-btn" style="background-color: transparent; border: 1px solid var(--accent-green); color: var(--accent-green);" onclick="triggerUpload('${act.activity_id}', '${act.title}', true)">
-                   Update Submission
-                </button>`;
-        } else if (deadline < now) {
-            timeStatusHTML = `<span class="deadline-text text-danger">Missed Deadline (${deadline.toLocaleDateString()})</span>`;
-            actionHTML = `<button class="btn btn-secondary disabled" disabled>Locked</button>`;
-        } else {
-            timeStatusHTML = `<span class="deadline-text" style="color:var(--accent-yellow)">Due: ${deadline.toLocaleString()}</span>`;
-            actionHTML = `<button class="action-btn" onclick="triggerUpload('${act.activity_id}', '${act.title}', false)">Submit PDF</button>`;
+        const isQuiz = a.type_code === 'QUIZ';
+        let actionBtn = '';
+        if (a.submission_status === 'pending') {
+            if (isQuiz) {
+                actionBtn = `<button class="btn btn-primary" style="width:100%" onclick="window.location.href='quizzes.php?act_id=${a.activity_id}'">Take Quiz</button>`;
+            } else {
+                // We will implement file upload in submissions.php modal or here.
+                actionBtn = `<button class="btn btn-outline" style="width:100%; border-color:var(--brand-indigo); color:var(--brand-indigo);" onclick="openUploadModal('${a.activity_id}', '${a.title}')">Submit File</button>`;
+            }
+        } else if (a.submission_status === 'submitted') {
+            actionBtn = `<button class="btn btn-outline" style="width:100%" disabled>Submitted</button>`;
+            // allow replacement logic later via submissions tab
+        } else if (a.submission_status === 'overdue') {
+            actionBtn = `<button class="btn btn-outline" style="width:100%; opacity:0.5; color:var(--brand-rose);" disabled>Deadline Passed</button>`;
         }
 
-        const card = document.createElement('div');
-        card.className = 'assignment-card';
-        card.innerHTML = `
-            <div class="assignment-info">
-                <h3>${act.title}</h3>
-                <p>${act.instructions || 'No special instructions provided.'}</p>
-                <div class="assignment-meta">
-                    <span class="meta-tag">${act.subject}</span>
-                    <span class="meta-tag">${act.category}</span>
-                    <span class="meta-tag">Marks: ${act.max_marks}</span>
+        return `
+            <div class="glass-panel" style="display:flex; flex-direction:column; justify-content:space-between; gap:16px;">
+                <div>
+                    <div style="display:flex; justify-content:space-between; margin-bottom:12px;">
+                        <span class="badge ${badgeType}">${a.category}</span>
+                        <span style="font-size:0.8rem; color:var(--text-muted); font-weight:600;">${a.max_marks} Marks</span>
+                    </div>
+                    <h3 style="font-weight:700; font-size:1.2rem; margin-bottom:8px;">${a.title}</h3>
+                    <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:16px; line-height:1.4;">${a.subject}</p>
+                    <p style="color:var(--text-secondary); font-size:0.85rem; margin-bottom:16px; min-height:40px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;">${a.instructions || 'No special instructions given.'}</p>
+                    <div style="display:flex; align-items:center; gap:6px; color:var(--text-muted); font-size:0.8rem; margin-bottom:4px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        ${a.deadline}
+                    </div>
+                </div>
+                <div>
+                    ${actionBtn}
                 </div>
             </div>
-            <div class="assignment-action">
-                ${timeStatusHTML}
-                ${actionHTML}
-            </div>
         `;
-        container.appendChild(card);
+    }).join('');
+}
+
+function openUploadModal(actId, title) {
+    Swal.fire({
+        title: 'Submit Assignment',
+        html: `
+            <p style="margin-bottom:16px;">Activity: <strong>${title}</strong></p>
+            <input type="file" id="assignment-pdf" accept=".pdf" class="swal2-input" style="width:85%; font-size:0.9rem;" />
+        `,
+        showCancelButton: true,
+        confirmButtonText: 'Upload',
+        confirmButtonColor: '#10b981',
+        preConfirm: () => {
+            const fileInput = document.getElementById('assignment-pdf');
+            if (fileInput.files.length === 0) {
+                Swal.showValidationMessage('Please select a PDF file');
+            }
+            return fileInput.files[0];
+        }
+    }).then((res) => {
+        if (res.isConfirmed) {
+            uploadFile(actId, res.value);
+        }
     });
 }
 
-function triggerUpload(activityId, title, isUpdate) {
+function uploadFile(actId, file) {
+    const fd = new FormData();
+    fd.append('activity_id', actId);
+    fd.append('file', file);
+
+    // We will call the upload API here. Let's assume we have it.
     Swal.fire({
-        title: isUpdate ? 'Update Submission' : 'Submit Activity',
-        html: `
-            <p style="margin-bottom: 20px;">Uploading for <strong>${title}</strong></p>
-            <input type="file" id="submissionFile" accept="application/pdf" style="margin: 0 auto; display: block; border: 1px solid #ccc; padding: 10px; border-radius: 6px; width: 80%;">
-            <p style="font-size:0.8rem; color: #888; margin-top:10px;">Only .pdf files are accepted. Max 5MB.</p>
-        `,
-        showCancelButton: true,
-        confirmButtonText: 'Upload File',
-        cancelButtonText: 'Cancel',
-        showLoaderOnConfirm: true,
-        background: '#1e293b',
-        color: '#f8fafc',
-        preConfirm: async () => {
-            const fileInput = document.getElementById('submissionFile');
-            if (!fileInput.files.length) {
-                Swal.showValidationMessage('Please select a PDF file.');
-                return false;
-            }
-            const file = fileInput.files[0];
-            if (file.type !== 'application/pdf') {
-                Swal.showValidationMessage('Invalid format. Please upload a PDF.');
-                return false;
-            }
-
-            const formData = new FormData();
-            formData.append('activity_id', activityId);
-            formData.append('submission_file', file);
-
-            try {
-                // Fetch directly because apiService currently wraps JSON.stringify, and we need multipart Form
-                const token = apiService.getToken();
-                const response = await fetch(window.APP_CONFIG.API_BASE_URL + '/api/v1/student/student-upload', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': 'Bearer ' + token
-                    },
-                    body: formData
-                });
-                const result = await response.json();
-                if (!result.success) throw new Error(result.error);
-                return result;
-            } catch (error) {
-                Swal.showValidationMessage(`Upload failed: ${error.message}`);
-                return false;
-            }
-        },
-        allowOutsideClick: () => !Swal.isLoading()
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire({
-                title: 'Success!',
-                text: 'Your document was uploaded securely.',
-                icon: 'success',
-                background: '#1e293b',
-                color: '#f8fafc'
-            });
-            fetchActivities(); // refresh listing
-        }
+        title: 'Uploading...',
+        allowOutsideClick: false,
+        didOpen: () => Swal.showLoading()
     });
+
+    // In native Fetch logic we use token
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+    fetch(apiService.baseUrl + '/student-upload.php', {
+        method: 'POST',
+        headers: { 'Authorization': 'Bearer ' + token },
+        body: fd
+    })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                Swal.fire('Success', 'File uploaded successfully!', 'success').then(() => fetchActivities());
+            } else {
+                Swal.fire('Error', data.error || 'Upload failed', 'error');
+            }
+        })
+        .catch(err => {
+            Swal.fire('Error', 'Network Error', 'error');
+        });
 }

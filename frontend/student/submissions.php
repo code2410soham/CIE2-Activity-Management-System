@@ -1,111 +1,159 @@
-<!--
-  CIE2-Activity-Management-System
-  File: frontend/student/submissions.html
-  Purpose: Displays student's past submissions, their review status, grades, and teacher feedback.
-  Scalability: Allows file upload triggers and dynamic submission state queries.
--->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Submissions | CIE-2 Activity Management</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="../shared/styles.css">
-  <!-- Route Guard -->
-  <script src="../shared/auth-guard.js"></script>
+  <title>Submissions History | CIE-2 Portal</title>
+  <link rel="stylesheet" href="../shared/styles.css?v=3.0">
 </head>
 
-<body class="dashboard-theme student-portal">
+<body data-theme="dark">
 
-  <div class="app-container">
-    <aside class="sidebar">
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <!-- Exact same sidebar as others but active on Submissions -->
       <div class="sidebar-brand">
-        <h2>CIE-2 Portal</h2>
+        <svg width="32" height="32" viewBox="0 0 64 64" fill="none">
+          <rect width="64" height="64" rx="16" fill="url(#brandGrad)" />
+          <path d="M32 14L16 23V41L32 50L48 41V23L32 14Z" stroke="white" stroke-width="3" stroke-linejoin="round" />
+          <path d="M32 20V44" stroke="white" stroke-width="2" />
+          <defs>
+            <linearGradient id="brandGrad" x1="0" y1="0" x2="64" y2="64">
+              <stop stop-color="#4338ca" />
+              <stop offset="1" stop-color="#7e22ce" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="brand-title">CIE-2 Portal</span>
       </div>
-      <nav class="sidebar-menu">
-        <a href="dashboard.html" class="menu-item" id="nav-dashboard">Dashboard</a>
-        <a href="activities.html" class="menu-item" id="nav-activities">Activities & Quizzes</a>
-        <a href="submissions.html" class="menu-item active" id="nav-submissions">Submissions</a>
+      <nav class="sidebar-nav">
+        <a href="dashboard.php" class="nav-item">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="7" height="9" rx="1" />
+            <rect x="14" y="3" width="7" height="5" rx="1" />
+            <rect x="14" y="12" width="7" height="9" rx="1" />
+            <rect x="3" y="16" width="7" height="5" rx="1" />
+          </svg> Dashboard
+        </a>
+        <a href="activities.php" class="nav-item">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+            <polyline points="10 9 9 9 8 9" />
+          </svg> Activities
+        </a>
+        <a href="quizzes.php" class="nav-item">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg> Quizzes
+        </a>
+        <a href="submissions.php" class="nav-item active">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="17 8 12 3 7 8" />
+            <line x1="12" y1="3" x2="12" y2="15" />
+          </svg> Submissions
+        </a>
+        <a href="performance.php" class="nav-item">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <line x1="18" y1="20" x2="18" y2="10" />
+            <line x1="12" y1="20" x2="12" y2="4" />
+            <line x1="6" y1="20" x2="6" y2="14" />
+          </svg> Performance
+        </a>
+        <a href="notifications.php" class="nav-item">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+          </svg> Notifications
+        </a>
+        <a href="profile.php" class="nav-item">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg> Profile
+        </a>
       </nav>
-      <div class="sidebar-footer">
-        <span class="user-badge student-badge">Student Mode</span>
+      <div style="padding: 24px;">
+        <button id="logout-btn" class="btn btn-outline" style="width: 100%;">
+          <svg viewBox="0 0 24 24" fill="none" class="nav-icon" stroke="currentColor">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <polyline points="16 17 21 12 16 7" />
+            <line x1="21" y1="12" x2="9" y2="12" />
+          </svg> Logout
+        </button>
       </div>
     </aside>
 
-    <main class="main-content">
-      <header class="top-bar">
-        <h1 id="page-title">My Submissions</h1>
-        <div class="user-profile">
-          <img src="../../uploads/profile-images/default-avatar.png" alt="Profile" class="profile-pic"
-            onerror="this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=student'">
-          <span class="profile-name">Alex Rivera</span>
+    <main class="main-wrapper">
+      <header class="topbar">
+        <div class="topbar-left">
+          <h2 class="outfit-font">Submission History</h2>
+        </div>
+        <div class="topbar-right">
+          <button class="icon-btn" id="themeToggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="nav-icon">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg></button>
         </div>
       </header>
 
-      <div class="content-body">
-        <!-- New Submission Box -->
-        <div class="glass-card upload-section">
-          <h2>Submit Activity</h2>
-          <form id="submission-form" class="form-grid">
-            <div class="form-group">
-              <label for="activity-select">Select Activity:</label>
-              <select id="activity-select" class="form-control" required>
-                <option value="">-- Choose Activity --</option>
-                <option value="act-1">Data Structures Lab - Trees & Graphs</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="file-upload">Upload File (.zip, .pdf):</label>
-              <input type="file" id="file-upload" class="form-control" required>
-            </div>
-            <div class="form-group full-width">
-              <label for="student-notes">Notes / Remarks:</label>
-              <textarea id="student-notes" class="form-control" rows="3"
-                placeholder="Add comments for the evaluator..."></textarea>
-            </div>
-            <div class="form-group full-width text-right">
-              <button type="submit" class="btn btn-primary">Submit Activity</button>
-            </div>
-          </form>
-        </div>
-
-        <!-- Submissions Status Table -->
-        <div class="glass-card table-section">
-          <h2>Submission History</h2>
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Submitted On</th>
-                <th>Activity Title</th>
-                <th>File</th>
-                <th>Status</th>
-                <th>Grade</th>
-                <th>Feedback</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Oct 10, 2026</td>
-                <td>Web Development Lab - CSS Grid Layout</td>
-                <td><a href="#" class="file-link">layout_submission.zip</a></td>
-                <td><span class="status-badge status-evaluated">Evaluated</span></td>
-                <td><strong>18/20</strong></td>
-                <td>Excellent styling structure. Well structured.</td>
-              </tr>
-            </tbody>
-          </table>
+      <div class="content-scroll">
+        <div class="glass-panel animate-enter">
+          <div class="table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>Activity Name</th>
+                  <th>Subject</th>
+                  <th>Submitted At</th>
+                  <th>Status</th>
+                  <th>Grade Given</th>
+                  <th>Feedback</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="history-table-body">
+                <tr>
+                  <td colspan="7" style="text-align: center; color: var(--text-muted);">Loading submission history...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </main>
   </div>
 
-  <script src="../shared/scripts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../shared/config.js?v=2.0"></script>
+  <script src="../shared/api-service.js?v=2.0"></script>
+  <script src="submissions.js?v=3.0"></script>
+  <script>
+    document.getElementById('logout-btn').addEventListener('click', () => apiService.logout());
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.setAttribute('data-theme', savedTheme);
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      let currentTheme = document.body.getAttribute('data-theme');
+      let newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      document.body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
 </body>
 
 </html>

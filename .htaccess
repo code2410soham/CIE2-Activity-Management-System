@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # Any route not found is routed to a 404 page if needed
+</IfModule>
+
+# Block access to environment or config files
+<FilesMatch "^\.env|config\.php|\.htaccess|.git">
+    Require all denied
+</FilesMatch>
+
+# Security Headers
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"

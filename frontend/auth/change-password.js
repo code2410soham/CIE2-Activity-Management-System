@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!token) {
         apiService.alertWarning('Session Expired', 'No authentication token found. Redirecting to login.');
         showStatusAlert('Authentication token missing. Redirecting to login...', 'danger');
-        setTimeout(() => { window.location.href = './login.html'; }, 2000);
+        setTimeout(() => { window.location.href = './login.php'; }, 2000);
         return;
     }
 
@@ -102,14 +102,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')));
                     const role = payload.role;
                     if (role === 'teacher') {
-                        window.location.href = '../teacher/dashboard.html';
+                        window.location.href = '../teacher/dashboard.php';
                     } else if (role === 'admin') {
-                        window.location.href = '../admin/dashboard.html';
+                        window.location.href = '../admin/dashboard.php';
                     } else {
-                        window.location.href = '../student/dashboard.html';
+                        window.location.href = '../student/dashboard.php';
                     }
                 } catch {
-                    window.location.href = '../student/dashboard.html';
+                    window.location.href = '../student/dashboard.php';
                 }
             }, 1500);
 

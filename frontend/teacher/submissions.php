@@ -3,7 +3,7 @@
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Teacher Dashboard | CIE-2 Portal</title>
+    <title>Manage Submissions | CIE-2 Portal</title>
     <link rel='stylesheet' href='../shared/styles.css?v=3.0'>
 </head>
 <body data-theme='dark'>
@@ -14,10 +14,10 @@
             <span class='brand-title'>CIE-2 Teachers</span>
         </div>
         <nav class='sidebar-nav'>
-            <a href='dashboard.php' class='nav-item active'>Dashboard</a>
+            <a href='dashboard.php' class='nav-item '>Dashboard</a>
             <a href='activity-management.php' class='nav-item '>Activities</a>
             <a href='quizzes.php' class='nav-item '>Quiz Management</a>
-            <a href='submissions.php' class='nav-item '>Submissions</a>
+            <a href='submissions.php' class='nav-item active'>Submissions</a>
             <a href='evaluation.php' class='nav-item '>Evaluation</a>
             <a href='reports.php' class='nav-item '>Reports</a>
             <a href='profile.php' class='nav-item '>Profile</a>
@@ -30,12 +30,12 @@
     <main class='main-wrapper'>
         <header class='topbar'>
             <div class='topbar-left'>
-                <h2 class='outfit-font'>Teacher Dashboard</h2>
+                <h2 class='outfit-font'>Manage Submissions</h2>
             </div>
         </header>
 
         <div class='content-scroll'>
-            <div class="kpi-grid"><div class="glass-panel kpi-card"><h3 style="font-size:2.5rem" id="kpi-1">0</h3><p>Active Activities</p></div><div class="glass-panel kpi-card"><h3 style="font-size:2.5rem" id="kpi-2">0</h3><p>Pending Evaluations</p></div><div class="glass-panel kpi-card"><h3 style="font-size:2.5rem" id="kpi-3">0</h3><p>Published Results</p></div></div>
+            <div class="glass-panel"><table class="modern-table"><thead><tr><th>Student</th><th>Activity</th><th>Status</th><th>File</th></tr></thead><tbody id="subs-body"></tbody></table></div>
         </div>
     </main>
 </div>
@@ -43,7 +43,7 @@
 <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
 <script src='../shared/config.js'></script>
 <script src='../shared/api-service.js'></script>
-<script src='dashboard.js'></script>
+<script src='submissions.js'></script>
 <script>
     document.getElementById('logout-btn').addEventListener('click', () => apiService.logout());
 </script>
