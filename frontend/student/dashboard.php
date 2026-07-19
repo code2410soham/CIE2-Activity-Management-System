@@ -15,7 +15,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="dashboard.css?v=2.0">
 </head>
 
 <body>
@@ -359,7 +359,14 @@
 
     </div>
 
-    <script src="dashboard.js"></script>
+    <!-- Vendor JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Application Core JS -->
+    <script src="../shared/config.js?v=2.0"></script>
+    <script src="../shared/api-service.js?v=2.0"></script>
+    <script src="dashboard.js?v=2.0"></script>
     <script>
         // Local theme control inside the page
         const themeToggler = document.getElementById('theme-toggler');

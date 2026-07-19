@@ -2,6 +2,7 @@
  * CIE-2 Activity Tracking, Evaluation and Performance Management System
  * File: frontend/auth/login.js
  * Purpose: Interactive frontend scripts for role-switching, real-time validations, and login integration.
+ *          Uses the centralized apiService for crash-proof, retry-safe API calls.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,28 +11,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const usernameLabel = document.getElementById('username-label');
     const usernameInput = document.getElementById('username-input');
     const passwordInput = document.getElementById('password-input');
-
     const togglePasswordBtn = document.getElementById('toggle-password');
     const statusMessage = document.getElementById('status-message');
     const submitBtn = document.getElementById('btn-login-submit');
     const btnText = submitBtn.querySelector('.btn-text');
     const spinner = submitBtn.querySelector('.spinner');
 
-    let currentRole = 'student'; // Default selection
+    let currentRole = 'student';
 
     // 1. Role Selection Switching
     roleTabs.forEach(tab => {
         tab.addEventListener('click', (e) => {
             e.preventDefault();
-
-            // Update active tab state
             roleTabs.forEach(t => {
                 t.classList.remove('active');
                 t.setAttribute('aria-selected', 'false');
             });
             tab.classList.add('active');
             tab.setAttribute('aria-selected', 'true');
-
             currentRole = tab.getAttribute('data-role');
             updateFormLabels();
             clearErrors();
@@ -56,19 +53,16 @@ document.addEventListener('DOMContentLoaded', () => {
         passwordInput.value = '';
     }
 
-    // Initialize placeholder text
     updateFormLabels();
 
     // 2. Password Visibility Toggle
     togglePasswordBtn.addEventListener('click', () => {
         const isPassword = passwordInput.type === 'password';
         passwordInput.type = isPassword ? 'text' : 'password';
-
-        // Toggle visual class or title
         togglePasswordBtn.classList.toggle('active', isPassword);
     });
 
-    // 3. Real-time Inputs Validation
+    // 3. Real-time Input Validation
     usernameInput.addEventListener('input', () => validateField(usernameInput, 'username-error'));
     passwordInput.addEventListener('input', () => validateField(passwordInput, 'password-error'));
 
@@ -79,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
             errorSpan.classList.add('visible');
             return false;
         }
-
         if (currentRole === 'admin' && input.type === 'email') {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(input.value.trim())) {
@@ -88,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 return false;
             }
         }
-
         errorSpan.textContent = '';
         errorSpan.classList.remove('visible');
         return true;
@@ -102,12 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
         statusMessage.classList.add('hidden');
     }
 
-    // 4. Form Submission
+    // 4. Form Submission — uses apiService for safe, crash-proof fetch
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         clearErrors();
 
-        // Check validations
         const isUserValid = validateField(usernameInput, 'username-error');
         const isPassValid = validateField(passwordInput, 'password-error');
 
@@ -116,15 +107,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Set Loading state
         setLoading(true);
 
         try {
-            // Build request body matching server specifications
-            const payload = {
-                role: currentRole,
-                password: passwordInput.value
-            };
+            const payload = { role: currentRole, password: passwordInput.value };
 
             if (currentRole === 'student') {
                 payload.prn = usernameInput.value.trim();
@@ -134,41 +120,50 @@ document.addEventListener('DOMContentLoaded', () => {
                 payload.email = usernameInput.value.trim();
             }
 
-            // Perform AJAX Post call
-            const response = await fetch('/api/v1/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            });
+            // ── Safe API call via centralized apiService ──────────────
+            // Never crashes with "Unexpected end of JSON input"
+            const result = await apiService.post('/api/v1/auth/login', payload);
 
-            const result = await response.json();
-
-            if (!response.ok || !result.success) {
-                throw new Error(result.error || 'Authentication failed. Please check credentials.');
+            if (!result || !result.success) {
+                // Use the smart error dialog to give role-specific messages
+                apiService.showResultError(result, 'Login Failed');
+                showStatusAlert(result?.error || 'Authentication failed. Please check your credentials.', 'danger');
+                setLoading(false);
+                return;
             }
 
-            // Store JWT details
+            // Store JWT token
             if (result.token) {
                 localStorage.setItem('authToken', result.token);
             }
 
-            showStatusAlert('Authentication successful! Redirecting...', 'success');
+            // Flag mustChangePassword flow
+            if (result.mustChangePassword) {
+                showStatusAlert('First-time login detected. Redirecting to password setup...', 'warning');
+                setTimeout(() => {
+                    window.location.href = './change-password.php';
+                }, 1200);
+                return;
+            }
 
-            // Redirect according to user role
+            showStatusAlert('Authentication successful! Redirecting...', 'success');
+            apiService.alertSuccess('Welcome!', 'Login successful.');
+
             setTimeout(() => {
                 if (currentRole === 'student') {
-                    window.location.href = '../student/dashboard.html';
+                    window.location.href = '../student/dashboard.php';
                 } else if (currentRole === 'teacher') {
-                    window.location.href = '../teacher/dashboard.html';
+                    window.location.href = '../teacher/dashboard.php';
                 } else if (currentRole === 'admin') {
-                    window.location.href = '../admin/dashboard.html';
+                    window.location.href = '../admin/dashboard.php';
                 }
             }, 1000);
 
         } catch (err) {
-            showStatusAlert(err.message, 'danger');
+            // Final safety net — should not normally be reached
+            console.error('[login.js] Unexpected error:', err);
+            apiService.alertError('Unexpected Error', err.message || 'An unknown error occurred.');
+            showStatusAlert(err.message || 'An unexpected error occurred.', 'danger');
             setLoading(false);
         }
     });

@@ -6,15 +6,21 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard | CIE-2 Activity Management</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../shared/styles.css">
+  <!-- Route Guard -->
+  <script src="../shared/auth-guard.js"></script>
 </head>
+
 <body class="dashboard-theme admin-portal">
 
   <div class="app-container">
@@ -36,7 +42,8 @@
       <header class="top-bar">
         <h1 id="page-title">Administrator Dashboard</h1>
         <div class="user-profile">
-          <img src="../../uploads/profile-images/default-avatar.png" alt="Profile" class="profile-pic" onerror="this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=admin'">
+          <img src="../../uploads/profile-images/default-avatar.png" alt="Profile" class="profile-pic"
+            onerror="this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=admin'">
           <span class="profile-name">System Administrator</span>
         </div>
       </header>
@@ -73,9 +80,12 @@
             <a href="reports.html" class="btn btn-secondary">View Detailed Logs</a>
           </div>
           <div class="log-console">
-            <div class="log-line"><span class="log-time">[10:42:01]</span> <span class="log-info">INFO:</span> User 4SO23CS001 uploaded 'sub-101.zip' for activity 'act-1'</div>
-            <div class="log-line"><span class="log-time">[10:45:30]</span> <span class="log-info">INFO:</span> Professor Eleanor Vance published new Quiz 'Database Systems Quiz 3'</div>
-            <div class="log-line"><span class="log-time">[10:50:12]</span> <span class="log-warn">WARN:</span> Database load spike detected: 78% connection pool usage</div>
+            <div class="log-line"><span class="log-time">[10:42:01]</span> <span class="log-info">INFO:</span> User
+              4SO23CS001 uploaded 'sub-101.zip' for activity 'act-1'</div>
+            <div class="log-line"><span class="log-time">[10:45:30]</span> <span class="log-info">INFO:</span> Professor
+              Eleanor Vance published new Quiz 'Database Systems Quiz 3'</div>
+            <div class="log-line"><span class="log-time">[10:50:12]</span> <span class="log-warn">WARN:</span> Database
+              load spike detected: 78% connection pool usage</div>
           </div>
         </section>
       </div>
@@ -84,4 +94,5 @@
 
   <script src="../shared/scripts.js"></script>
 </body>
+
 </html>

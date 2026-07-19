@@ -108,9 +108,23 @@ try {
     ]);
 
 } catch (Exception $e) {
-    http_response_code(400);
+    $msg = $e->getMessage();
+
+    // Log authentication errors
+    if (!is_dir(__DIR__ . '/../logs')) {
+        mkdir(__DIR__ . '/../logs', 0777, true);
+    }
+    error_log("[" . date('Y-m-d H:i:s') . "] Failed login attempt: " . $msg . " (IP: " . $_SERVER['REMOTE_ADDR'] . ")\n", 3, __DIR__ . '/../logs/auth_failures.log');
+
+    // Return 401 for Auth failures, 400 for bad request
+    if (strpos($msg, 'Invalid') !== false || strpos($msg, 'mismatch') !== false) {
+        http_response_code(401);
+    } else {
+        http_response_code(400);
+    }
+
     echo json_encode([
         'success' => false,
-        'error' => $e->getMessage()
+        'error' => $msg
     ]);
 }

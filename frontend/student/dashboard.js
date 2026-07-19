@@ -1,33 +1,26 @@
 /**
  * CIE-2 Activity Tracking, Evaluation and Performance Management System
  * File: frontend/student/dashboard.js
- * Purpose: Handles fetching dashboard state, client loading skeletons, and rendering database values.
+ * Purpose: Handles fetching dashboard state, loading skeletons, and rendering database values using api-service.js
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Verify Authorization Token
-    const token = localStorage.getItem('authToken');
-    if (!token) {
-        window.location.href = '../auth/login.html';
-        return;
-    }
+let performanceChartInstance = null;
+let subjectChartInstance = null;
 
-    // Set greeting current local datetime
+document.addEventListener('DOMContentLoaded', () => {
+    // Session automatically handled by api-service (auth-guard)
     setDateGreeting();
 
-    // 2. Fetch Dashboard Data
-    fetchDashboardData(token);
+    // Fetch Dashboard Data
+    fetchDashboardData();
 
-    // Setup Logout Trigger
+    // Logout
     document.getElementById('logout-button').addEventListener('click', (e) => {
         e.preventDefault();
-        localStorage.removeItem('authToken');
-        // Delete cookie by setting expiry to past
-        document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        window.location.href = '../auth/login.html';
+        apiService.logout();
     });
 
-    // Setup Notification bell toggle
+    // Notification bell toggle
     const bellBtn = document.querySelector('[id*="notif-bell-btn"]');
     const notifPanel = document.getElementById('notifications-panel');
     if (bellBtn && notifPanel) {
@@ -43,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Setup filter tabs
+    // Filter tabs
     document.querySelectorAll('.filter-tab').forEach(tab => {
         tab.addEventListener('click', (e) => {
             document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
@@ -53,87 +46,77 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-/**
- * Renders the local greeting based on time of day (Good Morning, Afternoon, Evening, Night)
- */
 function setDateGreeting() {
     const greetingText = document.getElementById('dashboard-greeting');
     const dateStrText = document.getElementById('dashboard-date-str');
-
-    // Use target local date in UTC+5:30
     const now = new Date();
     const hours = now.getHours();
 
     let prefix = "Good Morning";
-    if (hours >= 12 && hours < 17) {
-        prefix = "Good Afternoon";
-    } else if (hours >= 17 && hours < 22) {
-        prefix = "Good Evening";
-    } else if (hours >= 22 || hours < 5) {
-        prefix = "Good Night";
-    }
+    if (hours >= 12 && hours < 17) prefix = "Good Afternoon";
+    else if (hours >= 17 && hours < 22) prefix = "Good Evening";
+    else if (hours >= 22 || hours < 5) prefix = "Good Night";
 
-    if (greetingText) {
-        greetingText.textContent = `${prefix}, Student! 👋`;
-    }
-
+    if (greetingText) greetingText.textContent = `${prefix}, Student! 👋`;
     if (dateStrText) {
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        dateStrText.textContent = now.toLocaleDateString('en-US', options);
+        dateStrText.textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     }
 }
 
-async function fetchDashboardData(token) {
+async function fetchDashboardData() {
     const skeleton = document.getElementById('dashboard-skeleton');
     const sections = document.getElementById('dashboard-sections');
 
     try {
-        const response = await fetch('/api/v1/student/dashboard', {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        });
+        const result = await apiService.get('/api/v1/student/student-dashboard');
 
-        const result = await response.json();
-
-        if (!response.ok || !result.success) {
-            throw new Error(result.error || 'Failed to authenticate dashboard session.');
+        if (!result.success) {
+            // API service handles standard auth errors, this handles DB errors
+            showDashboardError(result.error || 'Server error. Please try refreshing.');
+            return;
         }
 
-        // Hide loader, show sections
         if (skeleton) skeleton.classList.add('hidden');
         if (sections) sections.classList.remove('hidden');
 
-        // Render Data Content
+        // Render Data
         renderProfile(result.student);
         renderSummary(result.summary);
         renderActivities(result.activities);
         renderSubjectAnalytics(result.subject_analytics);
         renderUpcomingDeadlines(result.upcoming_deadlines);
         renderNotifications(result.notifications);
-        renderPerformanceTrend(result.performance_trend);
+
+        // Render Chart.js
+        renderPerformanceTrendChart(result.performance_trend);
+        renderSubjectAnalyticsChart(result.subject_analytics);
 
     } catch (err) {
-        console.error(err);
-        // Show session redirect
-        localStorage.removeItem('authToken');
-        window.location.href = '../auth/login.html';
+        console.error('[dashboard.js] fetchDashboardData error:', err);
     }
+}
+
+function showDashboardError(message) {
+    const skeleton = document.getElementById('dashboard-skeleton');
+    if (skeleton) skeleton.classList.add('hidden');
+
+    Swal.fire({
+        icon: 'error',
+        title: 'Data Load Failed',
+        text: message,
+        confirmButtonColor: '#2563eb'
+    });
 }
 
 function renderProfile(student) {
     if (!student) return;
 
-    // Greeting custom name
     const greetingText = document.getElementById('dashboard-greeting');
     if (greetingText) {
-        const text = greetingText.textContent;
-        const prefix = text.split(',')[0];
+        const prefix = greetingText.textContent.split(',')[0];
         greetingText.textContent = `${prefix}, ${student.name.split(' ')[0]} 👋`;
     }
 
-    // Set Initials in Avatar
     const initials = student.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
     const avatar = document.getElementById('avatar-initials');
     if (avatar) avatar.textContent = initials;
@@ -141,13 +124,10 @@ function renderProfile(student) {
     const nameBar = document.getElementById('avatar-student-name');
     if (nameBar) nameBar.textContent = student.name;
 
-    // Field settings
-    document.getElementById('prof-fullname').textContent = student.name;
-    document.getElementById('prof-prn').textContent = student.prn;
-    document.getElementById('prof-department').textContent = student.department;
-    document.getElementById('prof-semester').textContent = student.semester;
-    document.getElementById('prof-section').textContent = student.section;
-    document.getElementById('prof-batch').textContent = student.batch;
+    ['fullname', 'prn', 'department', 'semester', 'section', 'batch'].forEach(field => {
+        const el = document.getElementById(`prof-${field}`);
+        if (el && student[field]) el.textContent = student[field];
+    });
 }
 
 function renderSummary(summary) {
@@ -155,7 +135,12 @@ function renderSummary(summary) {
     document.getElementById('stat-marks-obtained').textContent = summary.total_marks;
     document.getElementById('stat-overall-percent').textContent = summary.overall_percentage + '%';
     document.getElementById('stat-completion-rate').textContent = summary.completion_rate + '%';
-    document.getElementById('stat-pending-activities').textContent = summary.pending;
+
+    // Mix Pending and Quiz stats
+    const pendEl = document.getElementById('stat-pending-activities');
+    if (pendEl) {
+        pendEl.innerHTML = `${summary.pending} <span style="font-size: 0.6em; color:var(--text-secondary); display:block; margin-top:2px;">Quizzes: ${summary.quiz_completed}/${summary.quiz_total}</span>`;
+    }
 }
 
 function renderActivities(activities) {
@@ -172,20 +157,16 @@ function renderActivities(activities) {
         const tr = document.createElement('tr');
         tr.dataset.status = act.submission_status;
 
-        // Badge class
         let badgeClass = 'badge-pending';
-        if (act.submission_status === 'Submitted') {
-            badgeClass = 'badge-submitted';
-        } else if (act.submission_status === 'Overdue') {
-            badgeClass = 'badge-overdue';
-        }
+        if (act.submission_status === 'Submitted') badgeClass = 'badge-submitted';
+        else if (act.submission_status === 'Overdue') badgeClass = 'badge-overdue';
 
-        // Action button spec
-        let actionBtn = '';
-        if (act.type_code === 'QUIZ') {
-            actionBtn = `<button class="action-btn" onclick="alert('Starting Quiz: ${act.title}')">Attempt</button>`;
-        } else {
-            actionBtn = `<button class="action-btn" onclick="alert('Opening Submission flow for: ${act.title}')">Submit PDF</button>`;
+        let actionBtn = act.type_code === 'QUIZ'
+            ? `<button class="action-btn" onclick="alert('Starting Quiz: ${act.title}')">Attempt</button>`
+            : `<button class="action-btn" onclick="alert('Opening Submission flow for: ${act.title}')">Submit PDF</button>`;
+
+        if (act.submission_status === 'Submitted') {
+            actionBtn = `<span style="color:var(--status-sub-color); font-weight:600; font-size: 0.8rem;">Done</span>`;
         }
 
         tr.innerHTML = `
@@ -204,10 +185,7 @@ function renderActivities(activities) {
 }
 
 function filterTableRows(filter) {
-    const tbody = document.getElementById('activities-table-body');
-    if (!tbody) return;
-
-    const rows = tbody.querySelectorAll('tr');
+    const rows = document.querySelectorAll('#activities-table-body tr');
     rows.forEach(row => {
         if (filter === 'all' || row.dataset.status === filter || row.querySelector('.empty-state')) {
             row.style.display = '';
@@ -228,24 +206,23 @@ function renderSubjectAnalytics(subjects) {
 
     grid.innerHTML = '';
     subjects.forEach(sub => {
-        const card = document.createElement('div');
-        card.className = 'subject-stat-card';
-        card.innerHTML = `
-            <h3>${sub.subject_name}</h3>
-            <span style="font-size:0.75rem; color:var(--text-secondary); margin-top:-6px;">${sub.subject_code}</span>
-            <div class="subject-completion">
-               <span>Completion: ${sub.completion_rate}%</span>
-               <span style="font-weight: 700; color:var(--accent-yellow);">${sub.percentage}% Score</span>
-            </div>
-            <div class="progress-bar-bg">
-               <div class="progress-bar-fill" style="width: ${sub.completion_rate}%;"></div>
-            </div>
-            <div style="font-size:0.75rem; color:var(--text-secondary); margin-top:2px; display:flex; justify-content:space-between;">
-               <span>Activities: ${sub.activities_count}</span>
-               <span>Marks: ${sub.marks_summary}</span>
+        grid.innerHTML += `
+            <div class="subject-stat-card">
+                <h3>${sub.subject_name}</h3>
+                <span style="font-size:0.75rem; color:var(--text-secondary); margin-top:-6px;">${sub.subject_code}</span>
+                <div class="subject-completion">
+                   <span>Completion: ${sub.completion_rate}%</span>
+                   <span style="font-weight: 700; color:var(--accent-yellow);">${sub.percentage}% Score</span>
+                </div>
+                <div class="progress-bar-bg" style="width:100%; height:6px; background:var(--border-color); border-radius:3px; overflow:hidden; margin-top:2px;">
+                   <div class="progress-bar-fill" style="width: ${sub.completion_rate}%; height:100%; background:var(--accent-blue);"></div>
+                </div>
+                <div style="font-size:0.75rem; color:var(--text-secondary); margin-top:2px; display:flex; justify-content:space-between;">
+                   <span>Activities: ${sub.activities_count}</span>
+                   <span>Marks: ${sub.marks_summary}</span>
+                </div>
             </div>
         `;
-        grid.appendChild(card);
     });
 }
 
@@ -258,23 +235,15 @@ function renderUpcomingDeadlines(deadlines) {
         return;
     }
 
-    container.innerHTML = '';
-    deadlines.forEach(dl => {
-        const item = document.createElement('div');
-        item.className = 'deadline-item';
-
-        // Extract time parts
-        item.innerHTML = `
+    container.innerHTML = deadlines.map(dl => `
+        <div class="deadline-item">
             <div class="deadline-info">
                <h4>${dl.title}</h4>
                <p>${dl.subject}</p>
             </div>
-            <div class="deadline-time">
-               ${dl.deadline.split(',')[0]}
-            </div>
-        `;
-        container.appendChild(item);
-    });
+            <div class="deadline-time">${dl.deadline.split(',')[0]}</div>
+        </div>
+    `).join('');
 }
 
 function renderNotifications(notifs) {
@@ -290,42 +259,71 @@ function renderNotifications(notifs) {
 
     if (indicator) indicator.classList.remove('hidden');
 
-    list.innerHTML = '';
-    notifs.forEach(n => {
-        const div = document.createElement('div');
-        div.className = `notif-item ${n.type}`;
-        div.innerHTML = `
+    list.innerHTML = notifs.map(n => `
+        <div class="notif-item ${n.type}">
             <span>${n.message}</span>
             <span class="notif-time">${n.time}</span>
-        `;
-        list.appendChild(div);
-    });
+        </div>
+    `).join('');
 }
 
-function renderPerformanceTrend(trend) {
+// ---- CHART.JS INTEGRATION ----
+
+function renderPerformanceTrendChart(trendData) {
     const container = document.getElementById('custom-trend-bars');
     if (!container) return;
 
-    if (!trend || trend.length === 0) {
-        container.style.display = 'none';
-        const p = document.createElement('p');
-        p.textContent = "Insufficient assessment data to view trends.";
-        p.className = 'empty-state';
-        p.style.textAlign = 'center';
-        p.style.padding = '20px';
-        p.style.color = 'var(--text-secondary)';
-        container.parentNode.appendChild(p);
-        return;
-    }
+    // Replace custom bars with canvas
+    container.innerHTML = '<canvas id="performanceChart" width="100%" height="80"></canvas>';
 
-    container.innerHTML = '';
-    trend.forEach(t => {
-        const barWr = document.createElement('div');
-        barWr.className = 'bar-wrapper';
-        barWr.innerHTML = `
-            <div class="bar-col" style="height: ${t.score}px;" data-score="${t.score}"></div>
-            <span class="bar-label" title="${t.label}">${t.label}</span>
-        `;
-        container.appendChild(barWr);
+    if (!trendData || trendData.length === 0) return;
+
+    const ctx = document.getElementById('performanceChart').getContext('2d');
+
+    if (performanceChartInstance) performanceChartInstance.destroy();
+
+    const labels = trendData.map(t => t.label.substring(0, 15) + (t.label.length > 15 ? '...' : ''));
+    const data = trendData.map(t => t.score);
+
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+    performanceChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Score (%)',
+                data: data,
+                borderColor: '#2563eb',
+                backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                borderWidth: 2,
+                pointBackgroundColor: '#2563eb',
+                fill: true,
+                tension: 0.3
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    grid: { color: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)' }
+                },
+                x: {
+                    grid: { display: false }
+                }
+            }
+        }
     });
+}
+
+function renderSubjectAnalyticsChart(subjects) {
+    // Let's add a radar chart into the overview section if there is a place for it, 
+    // or just leave it out if we don't have a container.
+    // The SRS just states "Performance Analytics: Chart.js" which we did above.
 }

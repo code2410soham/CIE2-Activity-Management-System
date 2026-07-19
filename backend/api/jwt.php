@@ -24,9 +24,9 @@ class JWT
     /**
      * Signs a payload and returns a token string.
      */
-    public static function sign($payload, $expirySeconds = 86400)
+    public static function sign($payload, $expirySeconds = JWT_EXPIRY_SECONDS)
     {
-        $secret = load_env_param('JWT_SECRET', 'cie2_activity_mgmt_jwt_secret_token_19853');
+        $secret = JWT_SECRET;
 
         $header = json_encode(['alg' => 'HS256', 'typ' => 'JWT']);
 
@@ -48,7 +48,7 @@ class JWT
      */
     public static function verify($token)
     {
-        $secret = load_env_param('JWT_SECRET', 'cie2_activity_mgmt_jwt_secret_token_19853');
+        $secret = JWT_SECRET;
         $parts = explode('.', $token);
         if (count($parts) !== 3) {
             return null;

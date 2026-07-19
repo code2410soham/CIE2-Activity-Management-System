@@ -3,6 +3,7 @@
  * File: backend/server.js
  * Purpose: Central server entry point. Serves static frontend files and mounts API endpoints.
  *          Validates environment and tests DB connection before starting.
+ *          Now includes structured API logging and a centralized JSON error handler.
  */
 
 const express = require('express');
@@ -14,6 +15,9 @@ require('dotenv').config();
 const authRoutes = require('./auth/routes');
 const studentRoutes = require('./student/routes');
 const authMiddleware = require('./middleware/auth');
+const apiLogger = require('./middleware/api-logger');
+const globalErrorHandler = require('./middleware/global-error-handler');
+const logger = require('./utils/logger');
 const { pool } = require('./db');
 
 const app = express();
@@ -35,6 +39,7 @@ if (missingEnv.length > 0) {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(apiLogger); // Log every request to api.log
 
 // CORS: Allow requests from any localhost origin (works for all team members)
 const allowedOrigins = [
@@ -42,18 +47,13 @@ const allowedOrigins = [
     `http://127.0.0.1:${PORT}`,
     'http://localhost:3000',
     'http://127.0.0.1:3000',
-    // Add additional custom origins from .env if needed
     process.env.CORS_ORIGIN
 ].filter(Boolean);
 
 app.use(cors({
     origin: (origin, callback) => {
-        // Allow requests with no origin (e.g., same-origin, Postman, curl)
         if (!origin) return callback(null, true);
-        if (allowedOrigins.includes(origin)) {
-            return callback(null, true);
-        }
-        // In development, allow all localhost origins dynamically
+        if (allowedOrigins.includes(origin)) return callback(null, true);
         if (process.env.NODE_ENV !== 'production' && /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
             return callback(null, true);
         }
@@ -69,7 +69,15 @@ app.use(cors({
 app.use('/frontend', express.static(path.join(__dirname, '../frontend')));
 
 app.get('/', (req, res) => {
-    res.redirect('/frontend/auth/login.html');
+    res.sendFile(path.join(__dirname, '../index.html'));
+});
+
+app.get('/index.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '../index.html'));
+});
+
+app.get('/404.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '../404.html'));
 });
 
 // ─── 3. Health Check Endpoint ────────────────────────────────────────────────
@@ -81,7 +89,8 @@ app.get('/api/health', async (req, res) => {
         conn.release();
         res.json({ success: true, status: 'ok', database: 'connected', timestamp: new Date().toISOString() });
     } catch (err) {
-        res.status(503).json({ success: false, status: 'error', database: 'disconnected', error: err.message });
+        logger.error(err, { context: 'health-check' });
+        res.status(503).json({ success: false, status: 'error', database: 'disconnected', error: 'Database connection failed.' });
     }
 });
 
@@ -90,30 +99,48 @@ app.get('/api/health', async (req, res) => {
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/student', authMiddleware, studentRoutes);
 
-// ─── 5. Global Error Handler ─────────────────────────────────────────────────
+// ─── 5. Wildcard 404 Fallback ────────────────────────────────────────────────
 
-// eslint-disable-next-line no-unused-vars
-app.use((err, req, res, next) => {
-    if (err.message && err.message.startsWith('CORS policy')) {
-        return res.status(403).json({ success: false, error: err.message });
+app.use((req, res, next) => {
+    if (req.path.startsWith('/api/')) {
+        // API routes get JSON 404 — never HTML
+        return res.status(404).json({ success: false, error: `API endpoint not found: ${req.method} ${req.originalUrl}` });
     }
-    console.error('Express Error handler caught:', err.stack);
-    res.status(500).json({
-        success: false,
-        error: process.env.NODE_ENV === 'production' ? 'Internal Server Error' : err.message
-    });
+    if (req.accepts('html')) {
+        res.status(404).sendFile(path.join(__dirname, '../404.html'));
+    } else {
+        res.status(404).json({ success: false, error: 'Not Found' });
+    }
 });
 
-// ─── 6. Start Server with DB Connection Test ─────────────────────────────────
+// ─── 6. Centralized JSON Error Handler (logs + guarantees JSON) ──────────────
+
+app.use(globalErrorHandler);
+
+// ─── 7. Process-level Safety Net ────────────────────────────────────────────
+
+process.on('uncaughtException', (err) => {
+    logger.error(err, { context: 'uncaughtException' });
+    console.error('💥 Uncaught Exception:', err.message);
+    // Give time to flush logs before exit
+    setTimeout(() => process.exit(1), 500);
+});
+
+process.on('unhandledRejection', (reason) => {
+    logger.error(reason instanceof Error ? reason : new Error(String(reason)), { context: 'unhandledRejection' });
+    console.error('💥 Unhandled Rejection:', reason);
+});
+
+// ─── 8. Start Server with DB Connection Test ─────────────────────────────────
 
 async function startServer() {
-    // Test DB connection before accepting requests
     try {
         const conn = await pool.getConnection();
         await conn.ping();
         conn.release();
         console.log('✅ Database connection verified.');
     } catch (err) {
+        logger.error(err, { context: 'startup-db-check' });
         console.error('\n🚨 STARTUP FAILED — Cannot connect to MySQL database!');
         console.error(`   Error: ${err.message}`);
         if (err.code === 'ECONNREFUSED') {
@@ -123,7 +150,6 @@ async function startServer() {
         } else if (err.code === 'ER_BAD_DB_ERROR') {
             console.error(`   → Database "${process.env.DB_NAME}" does not exist.`);
             console.error(`   → Run: mysql -u ${process.env.DB_USER} -p -e "CREATE DATABASE ${process.env.DB_NAME};"`);
-            console.error(`   → Then: mysql -u ${process.env.DB_USER} -p ${process.env.DB_NAME} < database/schema.sql`);
         }
         console.error('');
         process.exit(1);
@@ -135,6 +161,7 @@ async function startServer() {
         console.log(` Local URL:    http://localhost:${PORT}`);
         console.log(` Login Page:   http://localhost:${PORT}/frontend/auth/login.html`);
         console.log(` Health Check: http://localhost:${PORT}/api/health`);
+        console.log(` Logs Dir:     backend/logs/`);
         console.log(`=========================================`);
     });
 }

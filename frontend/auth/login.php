@@ -154,7 +154,9 @@
         </footer>
     </div>
 
-    <script src="login.js"></script>
+    <script src="../shared/config.js?v=2.0"></script>
+    <script src="../shared/api-service.js?v=2.0"></script>
+    <script src="login.js?v=2.0"></script>
     <script>
         // Theme Switcher implementation (White, light blue and yellow for light theme)
         const toggleButton = document.getElementById('dark-mode-toggle');

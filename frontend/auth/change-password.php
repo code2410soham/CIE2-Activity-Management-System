@@ -14,8 +14,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="login.css">
+
+    <!-- Centralized config and API service layer -->
+    <script src="../shared/config.js"></script>
+    <script src="../shared/api-service.js"></script>
     <style>
         /* Styling adjustments specifically for Change Password */
         .compliance-warning {
@@ -147,6 +150,8 @@
         </footer>
     </div>
 
+    <script src="../shared/config.js"></script>
+    <script src="../shared/api-service.js"></script>
     <script src="change-password.js"></script>
     <script>
         // Theme Switcher implementation

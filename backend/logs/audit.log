@@ -1,0 +1,7 @@
+{"timestamp":"2026-07-19T15:26:54.387Z","level":"AUDIT","event":"LOGIN_FAIL","reason":"Missing role or password in request body"}
+{"timestamp":"2026-07-19T15:26:54.405Z","level":"AUDIT","event":"LOGIN_FAIL","reason":"Missing role or password in request body"}
+{"timestamp":"2026-07-19T15:26:54.570Z","level":"AUDIT","event":"LOGIN_FAIL","role":"student","identifier":"125UIT1103","ip":"::ffff:127.0.0.1","reason":"Invalid credentials"}
+{"timestamp":"2026-07-19T15:26:54.704Z","level":"AUDIT","event":"LOGIN_SUCCESS","role":"student","identifier":"125UIT1103","ip":"::ffff:127.0.0.1","mustChangePassword":true}
+{"timestamp":"2026-07-19T15:35:50.219Z","level":"AUDIT","event":"LOGIN_SUCCESS","role":"student","identifier":"125UIT1103","ip":"::ffff:127.0.0.1","mustChangePassword":true}
+{"timestamp":"2026-07-19T15:36:42.397Z","level":"AUDIT","event":"LOGIN_SUCCESS","role":"student","identifier":"125UIT1103","ip":"::ffff:127.0.0.1","mustChangePassword":true}
+{"timestamp":"2026-07-19T15:40:54.857Z","level":"AUDIT","event":"LOGIN_SUCCESS","role":"student","identifier":"125UIT1103","ip":"::ffff:127.0.0.1","mustChangePassword":true}

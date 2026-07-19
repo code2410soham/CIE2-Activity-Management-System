@@ -6,15 +6,21 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Activity Management | CIE-2 Activity Management</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../shared/styles.css">
+  <!-- Route Guard -->
+  <script src="../shared/auth-guard.js"></script>
 </head>
+
 <body class="dashboard-theme teacher-portal">
 
   <div class="app-container">
@@ -36,7 +42,8 @@
       <header class="top-bar">
         <h1 id="page-title">Activity Management</h1>
         <div class="user-profile">
-          <img src="../../uploads/profile-images/default-avatar.png" alt="Profile" class="profile-pic" onerror="this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=teacher'">
+          <img src="../../uploads/profile-images/default-avatar.png" alt="Profile" class="profile-pic"
+            onerror="this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=teacher'">
           <span class="profile-name">Prof. Eleanor Vance</span>
         </div>
       </header>
@@ -68,7 +75,8 @@
             </div>
             <div class="form-group full-width">
               <label for="act-desc">Description / Instructions:</label>
-              <textarea id="act-desc" class="form-control" rows="3" placeholder="Provide instructions, guidelines, and reference links..." required></textarea>
+              <textarea id="act-desc" class="form-control" rows="3"
+                placeholder="Provide instructions, guidelines, and reference links..." required></textarea>
             </div>
             <div class="form-group full-width text-right">
               <button type="submit" class="btn btn-primary">Publish Activity</button>
@@ -111,4 +119,5 @@
 
   <script src="../shared/scripts.js"></script>
 </body>
+
 </html>

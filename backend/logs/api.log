@@ -1,0 +1,15 @@
+{"timestamp":"2026-07-19T15:26:04.831Z","level":"INFO","method":"GET","url":"/","ip":"::ffff:127.0.0.1","status":200,"durationMs":13,"userAgent":""}
+{"timestamp":"2026-07-19T15:26:04.838Z","level":"INFO","method":"GET","url":"/index.html","ip":"::ffff:127.0.0.1","status":200,"durationMs":3,"userAgent":""}
+{"timestamp":"2026-07-19T15:26:04.844Z","level":"INFO","method":"GET","url":"/invalid-route-name-123","ip":"::ffff:127.0.0.1","status":404,"durationMs":2,"userAgent":""}
+{"timestamp":"2026-07-19T15:26:04.847Z","level":"INFO","method":"GET","url":"/frontend/student/dashboard.html","ip":"::ffff:127.0.0.1","status":200,"durationMs":2,"userAgent":""}
+{"timestamp":"2026-07-19T15:26:54.398Z","level":"INFO","method":"POST","url":"/api/v1/auth/login","ip":"::ffff:127.0.0.1","status":400,"durationMs":11,"userAgent":""}
+{"timestamp":"2026-07-19T15:26:54.408Z","level":"INFO","method":"POST","url":"/api/v1/auth/login","ip":"::ffff:127.0.0.1","status":400,"durationMs":2,"userAgent":""}
+{"timestamp":"2026-07-19T15:26:54.571Z","level":"INFO","method":"POST","url":"/api/v1/auth/login","ip":"::ffff:127.0.0.1","status":401,"durationMs":156,"userAgent":""}
+{"timestamp":"2026-07-19T15:26:54.578Z","level":"INFO","method":"GET","url":"/api/v1/non-existent","ip":"::ffff:127.0.0.1","status":404,"durationMs":1,"userAgent":""}
+{"timestamp":"2026-07-19T15:26:54.705Z","level":"INFO","method":"POST","url":"/api/v1/auth/login","ip":"::ffff:127.0.0.1","status":200,"durationMs":122,"userAgent":""}
+{"timestamp":"2026-07-19T15:35:50.220Z","level":"INFO","method":"POST","url":"/api/v1/auth/login","ip":"::ffff:127.0.0.1","status":200,"durationMs":113,"userAgent":"Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.8737"}
+{"timestamp":"2026-07-19T15:36:42.398Z","level":"INFO","method":"POST","url":"/api/v1/auth/login","ip":"::ffff:127.0.0.1","status":200,"durationMs":107,"userAgent":"Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.8737"}
+{"timestamp":"2026-07-19T15:36:42.623Z","level":"INFO","method":"GET","url":"/api/v1/student/dashboard","ip":"::ffff:127.0.0.1","status":200,"durationMs":62,"userAgent":"Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.8737"}
+{"timestamp":"2026-07-19T15:38:11.415Z","level":"INFO","method":"GET","url":"/api/health","ip":"::ffff:127.0.0.1","status":200,"durationMs":3,"userAgent":"Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.8737"}
+{"timestamp":"2026-07-19T15:40:54.858Z","level":"INFO","method":"POST","url":"/api/v1/auth/login","ip":"::ffff:127.0.0.1","status":200,"durationMs":108,"userAgent":"Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.8737"}
+{"timestamp":"2026-07-19T15:40:54.893Z","level":"INFO","method":"GET","url":"/api/v1/student/dashboard","ip":"::ffff:127.0.0.1","status":200,"durationMs":14,"userAgent":"Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.8737"}

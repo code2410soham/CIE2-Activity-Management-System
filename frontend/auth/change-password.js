@@ -2,6 +2,7 @@
  * CIE-2 Activity Tracking, Evaluation and Performance Management System
  * File: frontend/auth/change-password.js
  * Purpose: Secure validations and endpoint post requests for password changes.
+ *          Uses the centralized apiService for crash-proof, retry-safe API calls.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,13 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnText = submitBtn.querySelector('.btn-text');
     const spinner = submitBtn.querySelector('.spinner');
 
-    // Verify that an auth token is in localStorage
+    // Verify that an auth token is in localStorage before rendering
     const token = localStorage.getItem('authToken');
     if (!token) {
+        apiService.alertWarning('Session Expired', 'No authentication token found. Redirecting to login.');
         showStatusAlert('Authentication token missing. Redirecting to login...', 'danger');
-        setTimeout(() => {
-            window.location.href = './login.html';
-        }, 2000);
+        setTimeout(() => { window.location.href = './login.html'; }, 2000);
         return;
     }
 
@@ -38,19 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
             errorSpan.classList.add('visible');
             return false;
         }
-
         if (input === newPassInput && val.length < 6) {
             errorSpan.textContent = 'Password must be at least 6 characters long.';
             errorSpan.classList.add('visible');
             return false;
         }
-
         if (input === confirmPassInput && val !== newPassInput.value.trim()) {
             errorSpan.textContent = 'Passwords do not match.';
             errorSpan.classList.add('visible');
             return false;
         }
-
         errorSpan.textContent = '';
         errorSpan.classList.remove('visible');
         return true;
@@ -79,37 +76,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setLoading(true);
 
-        // Perform AJAX Post call
-        const payload = {
-            currentPassword: currentPassInput.value,
-            newPassword: newPassInput.value
-        };
-
         try {
-            const response = await fetch('/api/v1/auth/change-password', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify(payload)
-            });
+            const payload = {
+                currentPassword: currentPassInput.value,
+                newPassword: newPassInput.value,
+            };
 
-            const result = await response.json();
+            // ── Safe API call via centralized apiService ──────────────
+            const result = await apiService.post('/api/v1/auth/change-password', payload);
 
-            if (!response.ok || !result.success) {
-                throw new Error(result.error || 'Failed to update password. Verify current credentials.');
+            if (!result || !result.success) {
+                apiService.showResultError(result, 'Password Update Failed');
+                showStatusAlert(result?.error || 'Failed to update password. Please verify your current credentials.', 'danger');
+                setLoading(false);
+                return;
             }
 
+            apiService.alertSuccess('Password Updated', 'Your password has been changed successfully.');
             showStatusAlert('Password updated successfully! Redirecting to dashboard...', 'success');
 
-            // Clear the temporary mustChangePassword criteria and continue to dashboard
+            // Determine redirect based on token's role
             setTimeout(() => {
-                window.location.href = '../student/dashboard.html';
+                try {
+                    const parts = token.split('.');
+                    const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')));
+                    const role = payload.role;
+                    if (role === 'teacher') {
+                        window.location.href = '../teacher/dashboard.html';
+                    } else if (role === 'admin') {
+                        window.location.href = '../admin/dashboard.html';
+                    } else {
+                        window.location.href = '../student/dashboard.html';
+                    }
+                } catch {
+                    window.location.href = '../student/dashboard.html';
+                }
             }, 1500);
 
         } catch (err) {
-            showStatusAlert(err.message, 'danger');
+            console.error('[change-password.js] Unexpected error:', err);
+            apiService.alertError('Unexpected Error', err.message || 'An unknown error occurred.');
+            showStatusAlert(err.message || 'An unexpected error occurred.', 'danger');
             setLoading(false);
         }
     });
